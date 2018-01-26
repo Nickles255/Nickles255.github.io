@@ -1,0 +1,42 @@
+/*styling for the main homework pages*/
+
+/*Styling navigation bar*/
+.top-nav {
+    color: blue;
+    background-color: lightsteelblue;
+    font-size: 2em;
+    float: left;
+    width: 600px;
+    margin: auto;
+}
+
+
+a {
+   color: blue; 
+   text-decoration: none; 
+}
+
+body {
+    background-image: url("orange.jpg");
+    background-size: cover;
+    font-size: 100%;
+}
+
+h1 {
+    color: darkblue;
+    font-size: 3em;
+    padding-top: 0.5em;
+}
+
+section {
+    padding-left: 50px;
+}
+
+p {
+    font-size: 1.5em;
+    margin: 3px;
+    padding: 0;
+}
+
+
+
