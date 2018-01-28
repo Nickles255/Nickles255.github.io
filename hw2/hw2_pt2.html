@@ -42,70 +42,63 @@
     
         <section>
 
-        <ul>
-            <li><a href="../index.html">CLIN Page</a></li>
-            <li><a href="hw2.html">HW2 Page</a></li>
-            <li><a href="hw2_pt1.html">Part 1</a></li>
-            <li><a href="hw2_pt2.html">Part 2</a></li>
-            <li><a href="hw2_pt3.html">Part 3</a></li>
-            <li><a href="hw2_pt4.html">Part 4</a></li>
-            <li><a href="hw2_pt5.html">Extra Credit</a></li>
-        </ul>
-        <form name="intForm">
+            <ul>
+                <li><a href="../index.html">CLIN Page</a></li>
+                <li><a href="hw2.html">HW2 Page</a></li>
+                <li><a href="hw2_pt1.html">Part 1</a></li>
+                <li><a href="hw2_pt2.html">Part 2</a></li>
+                <li><a href="hw2_pt3.html">Part 3</a></li>
+                <li><a href="hw2_pt4.html">Part 4</a></li>
+                <li><a href="hw2_pt5.html">Extra Credit</a></li>
+            </ul>
+            <form name="intForm">
 
-            <table>
-               <tr><td></td></tr>
-                <tr>
-                    <!--<td>Integer One</td>
-                    <td><input type="text" id="num1" size="10"></td>-->
-                    <td><label for="num1">Integer One:</label></td> 
-                    <td><input type="text" id="num1" size="10"></td>
-                </tr>
-               <tr>
-                  <!-- <td>Integer Two</td>
-                   <td><input type="text" id="num2" size="10"></td> -->
-                    <td><label for="num2">Integer Two:</label></td> 
-                    <td><input type="text" id="num2" size="10"></td>
+                <table>
+                   <tr><td>INPUT</td></tr>
+                    <tr>
+                        <td><label for="num1">Integer One:</label></td> 
+                        <td><input type="text" id="num1" size="10"></td>
+                    </tr>
+                   <tr>
+                        <td><label for="num2">Integer Two:</label></td> 
+                        <td><input type="text" id="num2" size="10"></td>
+                    </tr>
+                    <tr>                   
+                        <td><label for="num3">Integer Three:</label></td> 
+                        <td><input type="text" id="num3" size="10"></td>
+                    </tr>
+                </table>
 
-               </tr>
-               <tr>                   
-                <!--   <td>Integer Three</td>
-                   <td><input type="text" id="num3" size="10"></td> -->
-                    <td><label for="num3">Integer Three:</label></td> 
-                    <td><input type="text" id="num3" size="10"></td>
-               </tr>
-           </table>
+                <table>
+                    <tr><td>RESULTS</td></tr>
+                    <tr>
+                       <td>Sum is:</td>
+                       <td><input type="text" name="sumResult" size="10" readonly></td>
+                    </tr>
+                    <tr>
+                      <td> Average is:</td>
+                      <td><input type="text" name="avgResult" size="10" readonly></td>
+                    </tr>
+                    <tr>
+                       <td> Product is:</td>
+                       <td><input type="text" name="prodResult" size="10" readonly></td>
+                    </tr>
+                    <tr>
+                       <td> Minimum is:</td>
+                       <td><input type="text" name="minResult" size="10" readonly></td>
+                    </tr>
+                    <tr>
+                        <td> Maximum is:</td>
+                        <td><input type="text" name="maxResult" size="10" readonly></td>
+                    </tr>
+                </table>
 
-           <table>
-               <tr><td>RESULTS</td></tr>
-               <tr>
-                   <td>Sum is:</td>
-                   <td><input type="text" name="sumResult" size="10" readonly></td>
-               </tr>
-               <tr>
-                   <td> Average is:</td>
-                   <td><input type="text" name="avgResult" size="10" readonly></td>
-               </tr>
-               <tr>
-                   <td> Product is:</td>
-                   <td><input type="text" name="prodResult" size="10" readonly></td>
-               </tr>
-               <tr>
-                   <td> Minimum is:</td>
-                   <td><input type="text" name="minResult" size="10" readonly></td>
-               </tr>
-               <tr>
-                   <td> Maximum is:</td>
-                   <td><input type="text" name="maxResult" size="10" readonly></td>
-               </tr>
-           </table>
+                <br>
 
-           <br>
+                <input type="button" onclick="process()" value="SUBMIT">
+                <input type="reset" value="RESET">
 
-           <input type="button" onclick="process()" value="SUBMIT">
-           <input type="reset" value="RESET">
-
-        </form>
+            </form>
         </section>
 
         <footer>
