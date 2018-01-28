@@ -1,7 +1,7 @@
 /*styling for the main homework pages*/
 
 /*Styling navigation bar*/
-.top-nav {
+div.top-nav {
     color: blue;
     background-color: lightsteelblue;
     font-size: 2em;
@@ -28,7 +28,7 @@ h1 {
     padding-top: 0.5em;
 }
 
-section {
+.main_hw_page {
     padding-left: 50px;
 }
 
