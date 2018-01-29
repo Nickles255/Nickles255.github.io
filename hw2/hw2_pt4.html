@@ -3,15 +3,28 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
-        <link rel="stylesheet" type="text/css" href="../hw_link_pages.css"
+        <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
         <meta charset="utf-8">
         <meta name="description" content="CLIN's CNIT 133 Homework 2 Part 1.">
         <title>HW2-Part4 Calculation Table</title>
+    <script>
+        function drawPowerTbl(n){
+            document.write("<table>")
+            document.write("<tr><th>Number</th><th>Square</th><th>Cube</th></tr>")
+            for(var curNum = 1; curNum <= n; curNum++){
+                document.write("<tr><td>" + curNum + "</td><td>" +
+                                Math.pow(curNum, 2) + "</td><td>" + 
+                                Math.pow(curNum, 3) + "</td></tr>");
+            }
+            document.write("</table>")
+            
+        }
+    </script>
     </head>
     <body>
         <header>
                 <h1>HW2 Part 4 - Calculation Table</h1>
-
+        
         </header>
     
         <section>
@@ -25,15 +38,10 @@
             <li><a href="hw2_pt4.html">Part 4</a></li>
             <li><a href="hw2_pt5.html">Extra Credit</a></li>
         </ul>
-
-        <p>Is this floating         
-        <p>Coming Soon!</p>
+            <script>
+                drawPowerTbl(6);
+            </script>
         </section>
-
-        <footer>
-
-        </footer>
-
     </body>
 
 </html> 
