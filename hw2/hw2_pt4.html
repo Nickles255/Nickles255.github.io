@@ -7,19 +7,7 @@
         <meta charset="utf-8">
         <meta name="description" content="CLIN's CNIT 133 Homework 2 Part 1.">
         <title>HW2-Part4 Calculation Table</title>
-    <script>
-        function drawPowerTbl(n){
-            document.write("<table>")
-            document.write("<tr><th>Number</th><th>Square</th><th>Cube</th></tr>")
-            for(var curNum = 1; curNum <= n; curNum++){
-                document.write("<tr><td>" + curNum + "</td><td>" +
-                                Math.pow(curNum, 2) + "</td><td>" + 
-                                Math.pow(curNum, 3) + "</td></tr>");
-            }
-            document.write("</table>")
-            
-        }
-    </script>
+    <script src="hw2_scripts.js"></script>
     </head>
     <body>
         <header>
@@ -30,7 +18,7 @@
         <section>
 
         <ul>
-            <li><a href="../index.html">CLIN Page</a></li>
+            <li><a class="mainpg" href="../index.html">CLIN Page</a></li>
             <li><a href="hw2.html">HW2 Page</a></li>
             <li><a href="hw2_pt1.html">Part 1</a></li>
             <li><a href="hw2_pt2.html">Part 2</a></li>
@@ -38,9 +26,11 @@
             <li><a href="hw2_pt4.html">Part 4</a></li>
             <li><a href="hw2_pt5.html">Extra Credit</a></li>
         </ul>
+        <div>
             <script>
                 drawPowerTbl(6);
             </script>
+        </div>
         </section>
     </body>
 

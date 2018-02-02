@@ -7,6 +7,21 @@
         <meta charset="utf-8">
         <meta name="description" content="CLIN's CNIT 133 Homework 2 Part 1.">
         <title>HW2-Extra Credit Exchange Rates</title>
+        <script>
+            function initRateTbl(){
+                var BPOUND = 0.77521, CDOLLAR = 1.34461,
+                    EURO = 0.88754, JYEN = 109.350, 
+                    MPESO = 18.2806;
+                document.forms["setRate"].elements["bPound"].value = BPOUND;
+                document.forms["setRate"].elements["cDollar"].value = CDOLLAR;
+                document.forms["setRate"].elements["euro"].value = EURO;
+                document.forms["setRate"].elements["jYen"].value = JYEN;
+                document.forms["setRate"].elements["mPeso"].value = MPESO;
+
+            }
+            // function calcExchRate(uDollar){}
+        </script>
+
     </head>
     <body>
         <header>
@@ -17,7 +32,7 @@
         <section>
 
         <ul>
-            <li><a href="../index.html">CLIN Page</a></li>
+            <li><a class="mainpg" href="../index.html">CLIN Page</a></li>
             <li><a href="hw2.html">HW2 Page</a></li>
             <li><a href="hw2_pt1.html">Part 1</a></li>
             <li><a href="hw2_pt2.html">Part 2</a></li>
@@ -25,11 +40,52 @@
             <li><a href="hw2_pt4.html">Part 4</a></li>
             <li><a href="hw2_pt5.html">Extra Credit</a></li>
         </ul>
-
-        <p>Is this floating         
-        <p>Coming Soon!</p>
         </section>
-
+        <section>
+            <form name="setRate">
+            <table id="currencyRates">
+                <thead>
+                <tr>
+                    <th>Currency</th>
+                    <th>Exchange Rate</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>British Pound</td>
+                    <td> <input type="text" name="bPound" 
+                                size="10" readonly></td>
+                </tr>
+                <tr>
+                    <td>Canadian Dollar</td>
+                    <td> <input type="text" name="cDollar" 
+                                size="10" readonly></td>
+                </tr>
+                <tr>
+                    <td>Euro</td>
+                    <td> <input type="text" name="euro" 
+                                size="10" readonly></td>
+                </tr>
+                <tr>
+                    <td>Japanese Yen</td>
+                    <td> <input type="text" name="jYen" 
+                                size="10" readonly></td>
+                </tr>
+                <tr>
+                    <td>Mexican Peso</td>
+                    <td> <input type="text" name="mPeso" 
+                                size="10" readonly></td>
+                </tr>
+                </tbody>
+                <tfoot>
+                    <tr>Exchange rates for 1 U.S. dollar on June 20, 2015.</tr>    
+                </tfoot>
+            </table>
+            </form>
+        <script>
+                initRateTbl();
+            </script> 
+        </section>
         <footer>
 
         </footer>

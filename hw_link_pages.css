@@ -27,3 +27,37 @@ li a:hover{
     background-color: gray;
 
 }
+
+a.mainpg {
+    font-weight: bold;
+
+}
+
+/* Styling for various areas in linked pages. */
+div {
+    margin-left: 200px;
+
+}
+
+table {
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+textarea {
+    margin-top: 20px
+
+}
+.powerTbl {
+    border-collapse: collapse;
+    padding: 50px;
+}
+
+
+.powerTbl th,
+.powerTbl td,
+.powerTbl tr {
+    text-align: right;
+    padding: 10px;
+    border: 1px solid black;
+}

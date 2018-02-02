@@ -8,6 +8,8 @@ div.top-nav {
     float: left;
     width: 600px;
     margin: auto;
+    padding: 10px;
+    
 }
 
 
@@ -37,6 +39,7 @@ p {
     margin: 3px;
     padding: 0;
 }
+
 
 
 
