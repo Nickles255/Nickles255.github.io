@@ -2,43 +2,40 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
-        <link rel="stylesheet" type="text/css" href="../hw_link_pages.css"
+        <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
         <meta charset="utf-8">
         <meta name="description" content="CLIN's CNIT 133 Homework 2 Part 2.">
+        <script src="hw2_scripts.js"></script>
         <title>HW2-Part2 Input 3 integers</title>
-    <script src="hw2_scripts.js"></script>
     </head>
     <body>
         <header>
-                <h1>HW2 Part 2 - Input 3 integers</h1>
-
+            <h1>HW2 Part 2 - Input 3 integers</h1>
         </header>
-    
-        <section>
 
-            <ul>
-                <li><a class="mainpg" href="../index.html">CLIN Page</a></li>
-                <li><a href="hw2.html">HW2 Page</a></li>
-                <li><a href="hw2_pt1.html">Part 1</a></li>
-                <li><a href="hw2_pt2.html">Part 2</a></li>
-                <li><a href="hw2_pt3.html">Part 3</a></li>
-                <li><a href="hw2_pt4.html">Part 4</a></li>
-                <li><a href="hw2_pt5.html">Extra Credit</a></li>
-            </ul>
+        <section>
+            <script>createNavMenu();</script>
+
             <form id="intForm">
                 <table>
                    <tr><th>INPUT</th></tr>
                     <tr>
                         <td><label for="num1">Integer One:</label></td> 
-                        <td><input type="text" id="num1" size="10"></td>
+                        <td><input class="nums" type="text" 
+                             id="num1" size="10" autocomplete="off">
+                        </td>
                     </tr>
                    <tr>
                         <td><label for="num2">Integer Two:</label></td> 
-                        <td><input type="text" id="num2" size="10"></td>
+                        <td><input class="nums" type="text" 
+                             id="num2" size="10" autocomplete="off">
+                        </td>
                     </tr>
                     <tr>                   
                         <td><label for="num3">Integer Three:</label></td> 
-                        <td><input type="text" id="num3" size="10"></td>
+                        <td><input class="nums" type="text" 
+                             id="num3" size="10" autocomplete="off">
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -49,37 +46,32 @@
                         </td>
                     </tr>
                 </table>
+                
                 <table class="results">
                     <tr><th>RESULTS</th></tr>
                     <tr>
                        <td>Sum is:</td>
-                       <td><input type="text" name="sumResult" size="10" readonly></td>
+                       <td><input class="nums" type="text" name="sumResult" size="10" readonly></td>
                     </tr>
                     <tr>
                       <td> Average is:</td>
-                      <td><input type="text" name="avgResult" size="10" readonly></td>
+                      <td><input class="nums" type="text" name="avgResult" size="10" readonly></td>
                     </tr>
                     <tr>
                        <td> Product is:</td>
-                       <td><input type="text" name="prodResult" size="10" readonly></td>
+                       <td><input class="nums" type="text" name="prodResult" size="10" readonly></td>
                     </tr>
                     <tr>
                        <td> Minimum is:</td>
-                       <td><input type="text" name="minResult" size="10" readonly></td>
+                       <td><input class="nums" type="text" name="minResult" size="10" readonly></td>
                     </tr>
                     <tr>
                         <td> Maximum is:</td>
-                        <td><input type="text" name="maxResult" size="10" readonly></td>
+                        <td><input class="nums" type="text" name="maxResult" size="10" readonly></td>
                     </tr>
                 </table>
-                <br>
             </form>
         </section>
-
-        <footer>
-
-        </footer>
-
     </body>
 
 </html> 

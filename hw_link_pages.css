@@ -34,11 +34,40 @@ a.mainpg {
 }
 
 /* Styling for various areas in linked pages. */
+    /*divs and named areas for adjustment*/
 div {
     margin-left: 200px;
+}
+
+div + div{
+    margin-top: 20px;
 
 }
 
+#flip {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-style: italic;
+
+}
+#describe {
+    padding: 20px;
+    display: none;
+    font-weight: bold;
+}
+
+#clearDisplay {
+    width: 100px;
+    text-align: center;
+    background-color: white;
+}
+
+    /* nums class numbers values are alligned right */
+.nums {
+    text-align: right;
+}
+
+/*Table settings.*/
 table {
     display: inline-block;
     vertical-align: text-top;
@@ -46,18 +75,16 @@ table {
 
 textarea {
     margin-top: 20px
-
 }
-.powerTbl {
+.powerTbl
+{
     border-collapse: collapse;
-    padding: 50px;
 }
-
 
 .powerTbl th,
 .powerTbl td,
-.powerTbl tr {
-    text-align: right;
+.powerTbl tr 
+{
     padding: 10px;
     border: 1px solid black;
 }
