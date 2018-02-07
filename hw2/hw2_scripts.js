@@ -115,7 +115,7 @@ function drawPowerTbl(n){
 // PART 5
 // Function calcExchRate takes the input from document element "uDollar_val" and then cycles through a
 // table, from second row to second to last row, looking at the second column in each row
-// multiplies value it finds with the input amd output to the third column
+// multiplies value it finds with the input and output to the third column
 function calcExchRate(){
     // from https://stackoverflow.com/questions/3072233/getting-value-from-table-cell-in-javascript-not-jquery
     var myTable, uDollar, exchVal;
