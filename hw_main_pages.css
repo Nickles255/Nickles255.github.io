@@ -12,6 +12,33 @@ div.top-nav {
     
 }
 
+/*Styling navigation bar*/
+ul{ 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    background-color: lightgray;
+    margin-right: 10px;
+    width: 200px;
+    float: left;
+
+}
+
+li a {
+    display: block;
+    color: black;
+    width: 190px;
+    border: 1px solid black;
+    text-decoration: none;
+    padding: 5px;
+}
+
+li a:hover{
+    color: white;
+    background-color: gray;
+
+}
 
 a {
    color: blue; 
