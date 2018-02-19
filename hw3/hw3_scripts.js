@@ -12,7 +12,7 @@ function createNavMenu(){
                    'Part 1 - Calc Student Grades</a></li>');
     document.write(' <li><a href="hw3_pt2.html">' + 
                    'Part 2 - Weekly Pay for Sales</a></li>');
-    document.write('<li><a href="hw4_pt3.html">' +
+    document.write('<li><a href="hw3_pt3.html">' +
                    'Part 3 - Temp Conversion</a></li>');
     document.write('<li><a href="hw3_pt4.html">' + 
                    'Part 4 - Simple Math Practice</a></li>');

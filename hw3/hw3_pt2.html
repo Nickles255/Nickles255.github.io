@@ -6,18 +6,169 @@
         <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="hw3_scripts.js"></script>
-        <meta name="description" content="CLIN's CNIT 133 Homework 3 Part 1.">
-        <title>HW3-Part1 Student Grade</title>
+        <meta name="description" content="CLIN's CNIT 133 Homework 3 Part 2.">
+        <title>HW3-Part2 Salesperson Earnings</title>
+        <script>
+             $( function() {
+                 $("#sPName").tooltip({collision: "flipfit"});
+             });
+
+            function compEarnings(){
+                var curItem, curTotal, numSold, pricePerUnit, myTable;
+                var tVal, totAmt = 0;
+                myTable = document.getElementById("salesEntryTable");
+                 
+                for(var iNum = 1, nNum = 4; iNum <= nNum; iNum ++){
+                    curItem = 'sItem' + iNum;
+                    // alert(curItem);
+                    curTotal = "s" + iNum + "Sold"; 
+                   // alert(curTotal);
+                    pricePerUnit = myTable.rows[iNum].cells[1].innerHTML;
+                   // alert(pricePerUnit);
+                    numSold = document.getElementById(curItem).value;
+                    tVal = Math.round(pricePerUnit*numSold*100)/100;
+
+                    //  alert(numSold);
+                  //  alert(pricePerUnit * numSold);
+                    document.getElementById(curTotal).value = tVal.toFixed(2);
+                    totAmt += tVal;
+                    document.getElementById("output").innerHTML += curItem + " ";
+                }
+                
+                document.getElementById('tSold').value = totAmt.toFixed(2);
+                document.getElementById('tEarn').value = (Math.round(((totAmt * 0.09) + 200)*100)/100).toFixed(2);
+                
+            }
+        </script>
     </head>
+    <style>
+        /*.ui-tooltip {
+            background-color: white;
+            height: 20px;
+            width: 330px;
+            padding: 0px;
+            color: darkblue;
+            opacity: 0.8;
+            position: absolute;
+            display: inline-block;
+            border: 1px black;
+        } */
+        ui-tooltip {
+    padding: 8px;
+    position: absolute;
+    z-index: 9999;
+    max-width: 300px;
+    -webkit-box-shadow: 0 0 5px #aaa;
+    box-shadow: 0 0 5px #aaa;
+    background-color: #000000;
+    font-family: Arial;
+    font-size: 10;
+    white-space: pre-line;
+}
+
+body .ui-tooltip {
+    border-width: 2px;
+}
+
+   .ui-helper-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+    </style>
     <body>
         <section>
-            <h1>HW3 Part 1 - Calculate Student Grades</h1>
+            <h1>HW3 Part 2 - Calculate Salesperson's Weekly Earnings</h1>
             <script>createNavMenu();</script>
 
+            <div>
+                <form id="salesInForm", name="salesInForm">
+                
+                <label for="sPName"><strong>Salesperson:</strong></label>
+                <input type="text" id="sPName" name="sPName" 
+                       title="Please make sure that the salesperson's name is spelled correctly">
 
-        </section>
+                <table id="salesEntryTable">
+                    <thead>
+                    <tr>
+                        <td>Item #</td>
+                        <td>Price</td>
+                        <td>Number Sold</td>
+                        <td>Total</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><label for="sItem1">Item 1: </label></td>
+                        <td class="dollars nums">239.99</td>
+                        <td><input type="text" id="sItem1" name="sItem1"
+                                   class="nums" size="10"></td>
+                        <td><input type="text" id="s1Sold" name="s1Sold"
+                                   class="nums" size="10" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sItem2">Item 2: </label></td>
+                        <td class="dollars nums">129.75</td>
+                            <td><input type="text" id="sItem2" name="sItem2"
+                                   class="nums" size="10"></td>
+                        <td><input type="text" id="s2Sold" name="s2Sold"
+                                   class="nums" size="10" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sItem3">Item 3: </label></td>
+                        <td class="dollars nums">99.95</td>
+                        <td><input type="text" id="sItem3" name="sItem3"
+                                   class="nums" size="10"></td>
+                        <td><input type="text" id="s3Sold" name="s3Sold"
+                                   class="nums" size="10" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sItem4">Item 4: </label></td>
+                        <td class="dollars nums">350.89</td>
+                        <td><input type="text" id="sItem4" name="sItem4"
+                                   class="nums" size="10"></td>
+                        <td><input type="text" id="s4Sold" name="s4Sold"
+                                   class="nums" size="10" readonly></td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
 
+                    <tr>
+                        <td colspan="3">
+                            <label for="tSold">Total Amount Sold:</label>
+                        </td>
+                        <td><input type="text" id="tSold" name="tSold"
+                                   class="nums" size="10" readonly></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <label for="tEarn">Total Weekly Earnings:</label>
+                        </td>
+                        <td><input type="text" id="tEarn" name="tEarn"
+                                   class="nums" size="10" readonly></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" value="SUBMIT" onclick="compEarnings()">
+                        </td>
+                        <td colspan="2">
+                            <input type="reset"  value="RESET">
+                        </td>
+                    </tr>
+                </tfoot>
+                </table>
+              
+                </form>
+            </div>
+        </section>  
     </body>
 
 

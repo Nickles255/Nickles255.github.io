@@ -34,11 +34,15 @@ div + div{
     background-color: white;
 }
 
-    /* nums class numbers values are alligned right */
+    /* nums class numbers values are aligned right */
 .nums {
     text-align: right;
 }
 
+    /* dollars adds class dollar before amountl */
+.dollars:before {
+    content: "$";
+}
 /*Table settings.*/
 table {
     display: inline-block;
@@ -48,8 +52,13 @@ table {
 textarea {
     margin-top: 20px
 }
-.powerTbl
-{
+
+thead {
+    text-align: center;
+    font-weight: bold;
+}
+
+.powerTbl{
     border-collapse: collapse;
 }
 
