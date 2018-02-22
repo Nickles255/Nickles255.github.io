@@ -27,6 +27,73 @@ function createNavMenu(){
 // formula for final average = 
 // (0.5 * hwAvg) + (0.2 * midExam) + (0.2 * finalExam) + (0.1 * ACR)
 
+
+$(document).ready(function(){
+// jquery validation rules for the input boxes for grades.
+    $("#gradeForm").validate({
+        rules:
+        {
+            hwAvg:      {required: true, digits: true, min: 0, max: 100},
+            midExam:    {required: true, digits: true, min: 0, max: 100},
+            finalExam:  {required: true, digits: true, min: 0, max: 100},
+            ACR:        {required: true, digits: true, min: 0, max: 100}
+        }
+    });
+// slide toggle function when the item id=flip is clicked it executes 
+// slideToggle on item id=describe.
+    $("#flip").click(function(){
+        $("#describe").slideToggle("slow");
+    })
+
+});
+
+// function to calculate grades. 
+// First check the form has valid input.
+// Second extract score values and uses formula to compute finalg grade.
+// Third determines letter grade.
+// Fourth based on the letter grade output retake course message. 
+function calcGrade() {
+    // STEP 1. Validation
+    if($("#gradeForm").valid()){
+        var l_hwAvg, l_midExam, l_finalExam, l_ACR, 
+            l_finalGrade, l_finalLtr;
+        
+        // STEP 2. 
+        l_hwAvg     = document.getElementById("hwAvg").value;
+        l_midExam   = document.getElementById("midExam").value;
+        l_finalExam = document.getElementById("finalExam").value;
+        l_ACR       = document.getElementById("ACR").value;
+
+        l_finalGrade = (0.5 * l_hwAvg) + (0.2 * l_midExam) + 
+                       (0.2 * l_finalExam) + (0.1 * l_ACR);
+        document.getElementById("finalGrd").value = l_finalGrade;
+                     
+        if(l_finalGrade >= 90)
+            l_finalLtr="A";
+        else if (l_finalGrade >= 80)
+            l_finalLtr="B";
+        else if (l_finalGrade >= 70)
+            l_finalLtr="C";
+        else if (l_finalGrade >= 60)
+            l_finalLtr="D";
+        else if (l_finalGrade >= 0)
+            l_finalLtr="F";
+        else l_finalLtr="NA";
+         
+        document.getElementById("finalLtr").value = l_finalLtr;
+        if (l_finalLtr == "D" ||
+            l_finalLtr == "F")
+        {document.getElementById("poorGradeMsg").innerHTML = 
+            "Student must retake the course!";}
+        else {document.getElementById("poorGradeMsg").innerHTML = "";} 
+    }
+
+}
+
+function resetMsg(){
+    document.getElementById("poorGradeMsg").innerHTML = "";
+}
+
 // PART 2
 // page takes a name and user input for 4 items. 
 // sales persons' pay = $200 + (0.09 * total sales)
@@ -35,6 +102,37 @@ function createNavMenu(){
 // page takes user input of a floating number and converts it to 
 // farenheit or celsius based on one of the two buttons user clicks.
 // converion formula is F = (9/5 * C) + 32
+function celsius(tVal){
+    return ((5/9) * (tVal - 32));
+}
+
+function fahrenheit(tVal){
+    return ((9/5 * tVal) + 32);
+}
+
+// main function takes a value and an inType
+// STEP 1. checks in type and creates output for display
+// STEP 2. creates output string and places 
+// in element names result in tempForm.
+function calcTemp(tVal, inType){
+    var result, inTypeDesc, outString;
+   //STEP 1. populate output variable depending on inType
+    if (inType == "F"){
+        result = fahrenheit(tVal);
+        inTypeDesc = "fahrenheit";
+        outTypeDesc = "celsius";
+    } else if (inType == 'C'){
+        result = celsius(tVal);
+        inTypeDesc = "celsius";
+        outTypeDesc = "fahrenheit";
+    }
+
+    //STEP 2. create output string and place in document.
+    outString = (tVal + " " + inTypeDesc + " is equal to " + result + 
+                 " " + outTypeDesc + ".");        
+    document.forms["tempForm"].elements["result"].value = outString;
+
+}
 
 // PART 4
 // page uses Math.random to produce two one-digit integers. Then 
@@ -43,3 +141,55 @@ function createNavMenu(){
 // if correct display string "Very good!" and prompt user if they wish to continue.
 // if incorrect display "No. Please try again." Let student try the same
 // question again until student gets it right.
+var val1, val2, numQues = 0, numTry = 0;
+ 
+//function creates a multiplication problem and adds one for numQues counter
+//everytime it is executed.
+function getNextProblem(){
+    val1 = Math.floor(Math.random() * 10);
+    val2 = Math.floor(Math.random() * 10);
+    numQues += 1;
+    document.getElementById("question").innerHTML =
+    "Question #" + numQues + "<br>" +
+    "How much is " + val1 + ' times ' + val2 + '?';
+    document.getElementById("userResult").innerHTML = " ";
+}
+
+//function checks the userAnswer against actualAnswer and adds one for numTry 
+//counter everytime it is executed.
+// if it is correct the execute continueGame function.
+// if incorect output incorrect response and ask student to try again.
+function checkAnswer(){
+    var userAnswer = document.getElementById("answer").value,
+        actualAnswer = val1 * val2;
+        numTry += 1;
+        document.getElementById("answer").value = null;
+        
+    if (userAnswer == actualAnswer){
+        document.getElementById("userResult").innerHTML =
+        "Your answer, " + userAnswer + ",was correct!"; 
+        continueGame();
+    
+    } else {
+        document.getElementById("userResult").innerHTML =
+        "Your answer, " + userAnswer + ",was incorrect!" +
+        "<br>" + "Please enter another answer and submit again."; 
+        
+    }
+}
+
+//function creates a confirm textbox popup. 
+//If user clicks ok executes getNextProblem to pull the next problem for user to try.
+//If user clicks cancel output results of practice on page
+function continueGame() {
+    var cont = confirm( "Your answer was correct!\n" +
+                        "Click ok to try another problem");
+    if (cont == true){
+        getNextProblem();
+    } else {
+        document.getElementById("game").innerHTML = 
+        "You made " + numTry + " attempts to answer " + 
+         numQues + " multiplication problems." +
+        "<br>" + "THANKS FOR PLAYING!";
+    }
+}

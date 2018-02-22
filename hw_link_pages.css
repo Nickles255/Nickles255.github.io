@@ -34,6 +34,9 @@ div + div{
     background-color: white;
 }
 
+#poorGradeMsg {
+    font-weight: bold;
+}
     /* nums class numbers values are aligned right */
 .nums {
     text-align: right;

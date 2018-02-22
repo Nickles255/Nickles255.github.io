@@ -10,61 +10,7 @@
         <meta name="description" content="CLIN's CNIT 133 Homework 3 Part 4.">
         <title>HW3-Part4-Math_Practice</title>
         <script>
-            var val1, val2, valOperator, userAnswer;
-            function specialRound(pNum, place){
-
-            }
-            
-            function getNextProblem(){
-                var randType;
-                val1 = Math.floor(Math.random() * 10) + 1;
-                val2 = Math.floor(Math.random() * 10) + 1;
-                randType = Math.floor(Math.random() * 4) + 1;
-
-                switch(randType) {
-                    case 1:
-                        valOperator = '+';
-                        break;
-                    case 2:
-                        valOperator = '-';
-                        break;
-                    case 3:
-                        valOperator = '*';
-                        break;
-                    case 4:
-                        valOperator = '/';
-                        break;
-                }
-                document.getElementById("question").innerHTML =
-                "How much is " + val1 + ' ' + valOperator + ' ' +
-                val2 + '?';
-            }
-
-            function checkAnswer(){
-                var userAnswer = document.getElementById("answer").value,
-                    actualAnswer = eval(val1 + valOperator + val2);
-
-                    document.getElementById("answer").value = null;
-                    // if problem is division fixes both values to 2 decimal places
-                    if (valOperator == '/'){
-                        userAnswer = parseFloat(userAnswer).toFixed(2);
-                        actualAnswer = actualAnswer.toFixed(2);
-                    }
-                    
-                if (userAnswer == actualAnswer){
-                    document.getElementById("userResult").innerHTML =
-                    "Your answer, " + userAnswer + ",was correct!"; 
-                    getNextProblem();
-                
-                } else {
-                    document.getElementById("userResult").innerHTML =
-                    "Your answer, " + userAnswer + ",was incorrect!\n" +
-                    "Please enter another answer and submit again."; 
-                    
-                }
-
-                
-            }
+           
 
         </script>
     </head>
@@ -75,18 +21,20 @@
                 createNavMenu();
             </script>
 
-            
+            <div id="game">
             <p id="question"></p>
+
             <br>
             <label for="answer">
-                Put your answer below: (division round to 2 decimal places)
+                Put your answer below:
             </label>
+
             <br>
             <input class="nums" type="number" id="answer" size="10" autocomplete="off">
             <input type="button" onclick="checkAnswer()" value="Submit answer">
             <br>
-            <!-- <input type="button" onclick="getNextProblem()" value="Get Next Problem"> -->
             <p id="userResult"></p>
+            </div>
         </section>
 
     </body>

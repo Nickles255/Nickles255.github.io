@@ -11,32 +11,10 @@
         <title>HW3-Part1 Student Grade</title>
 
 <script>
-    function celsius(tVal){
-        return ((5/9) * (tVal - 32));
-    }
 
-    function fahrenheit(tVal){
-        return ((9/5 * tVal) + 32);
-    }
-
-    function calcTemp(tVal, inType){
-        var result, inTypeDesc, outString;
-        if (inType == "F"){
-            result = fahrenheit(tVal);
-            inTypeDesc = "fahrenheit";
-            outTypeDesc = "celsius";
-        } else if (inType == 'C'){
-            result = celsius(tVal);
-            inTypeDesc = "celsius";
-            outTypeDesc = "fahrenheit";
-        }
-        outString = (tVal + " " + inTypeDesc + " is equal to " + result + 
-                     " " + outTypeDesc + ".");        
-        document.forms["tempForm"].elements["result"].value = outString;
-
-    }
 </script>
     </head>
+
     <body>
         <section>
             <h1>HW3 Part 3 - Temperature Conversion between Celcius and Fahrenheit</h1>
@@ -50,10 +28,12 @@
                              id="inTemp" size="10" autocomplete="off"></td>
                     </tr>
                 </table>
+
                 <br>
                 <input type="button" onclick="calcTemp(document.getElementById('inTemp').value, 'F')" value="to Celsius">
                 <input type="button" onclick="calcTemp(document.getElementById('inTemp').value, 'C')" value="to Fahrenheit">
                 <input type="reset" value="RESET">
+
                 <br>
                 <textarea rows="4" cols="40" name="result" readonly>
 

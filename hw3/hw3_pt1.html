@@ -9,134 +9,75 @@
         <script src="hw3_scripts.js"></script>
         <meta name="description" content="CLIN's CNIT 133 Homework 3 Part 1.">
         <title>HW3-Part1 Student Grade</title>
-        <script>
-            $(document).ready(function(){
-                $("#gradeForm").validate({
-                    rules:
-                    {
-                        hwAvg:      {required: true, digits: true, min: 0, max: 100},
-                        midExam:    {required: true, digits: true, min: 0, max: 100},
-                        finalExam:  {required: true, digits: true, min: 0, max: 100},
-                        ACR:        {required: true, digits: true, min: 0, max: 100}
-                    }
-                });
-                $("#flip").click(function(){
-                    $("#describe").slideToggle("slow");
-                })
-
-            });
-
-
-            function calcGrade() {
-                if($("#gradeForm").valid()){
-                    var l_hwAvg, l_midExam, l_finalExam, l_ACR, 
-                        l_finalGrade, l_finalLtr;
-                    
-                    l_hwAvg     = document.getElementById("hwAvg").value;
-                    l_midExam   = document.getElementById("midExam").value;
-                    l_finalExam = document.getElementById("finalExam").value;
-                    l_ACR       = document.getElementById("ACR").value;
-
-                    l_finalGrade = (0.5 * l_hwAvg) + (0.2 * l_midExam) + 
-                                   (0.2 * l_finalExam) + (0.1 * l_ACR);
-                    document.getElementById("finalGrd").value = l_finalGrade;
-                                 
-                    if(l_finalGrade >= 90)
-                        l_finalLtr="A";
-                    else if (l_finalGrade >= 80)
-                        l_finalLtr="B";
-                    else if (l_finalGrade >= 70)
-                        l_finalLtr="C";
-                    else if (l_finalGrade >= 60)
-                        l_finalLtr="D";
-                    else if (l_finalGrade >= 0)
-                        l_finalLtr="F";
-                    else l_finalLtr="NA";
-                     
-                    document.getElementById("finalLtr").value = l_finalLtr;
-                    if (l_finalLtr == "D" ||
-                        l_finalLtr == "F")
-                    {document.getElementById("poorGradeMsg").innerHTML = 
-                        "Student must retake the course!";}
-                    else {document.getElementById("poorGradeMsg").innerHTML = "";} 
-                }
-
-            }
-
-        </script>
     </head>
+
     <body>
         <header>
             <h1>HW3 Part 1 - Calculate Student Grades</h1>
         </header>    
         <section>
             <h3>Student Grades</h3>
-            <div id="describe">
-                <pre>
-                    The following webpage contains the heading, Student Grades,
-                    and uses a script that inputs a student's homework average, 
-                    mid-term exam score, final exam score, and ACR (all as integers).
-                </pre>
-            </div>
-            <script>createNavMenu();</script>
-            <div>
+            <script>createNavMenu();</script> 
+
                 <form id="gradeForm", name="gradeForm">
-                <table id="gradeEntryTable">
-                    <caption id="flip">
-                        Click to Show/Hide Instructions
-                    </caption>
-                    <tbody>
-                        <tr id="Homework">
-                            <td><label for="hwAvg">Enter Homework Average: </label></td>
-                            <td><input type="text" id="hwAvg" name="hwAvg" 
-                                       class="nums" size="10"></td>
+            
+                    <table id="gradeEntryTable">
+                        <tbody>
+                            <tr id="Homework">
+                                <td><label for="hwAvg">Enter Homework Average: </label></td>
+                                <td><input type="text" id="hwAvg" name="hwAvg" 
+                                           class="nums" size="10"></td>
+                            </tr>
+                            <tr id="Midterm">
+                                <td><label for="midExam">Enter Midterm Score: </label></td>
+                                <td><input type="text" id="midExam" name="midExam" 
+                                           class="nums" size="10"></td>
+                            </tr>
+                            <tr id="Final">
+                                <td><label for="finalExam">Enter Final Score: </label></td>
+                                <td><input type="text" id="finalExam" name="finalExam" 
+                                           class="nums" size="10"></td>
+                            </tr>
+                            <tr id="ACR_value">
+                                <td><label for="ACR">Enter ACR Score: </label></td>
+                                <td><input type="text" id="ACR" name="ACR" 
+                                           class="nums" size="10"></td>
+                           </tr>
+                        </tbody>
+                    </table>
+
+                    <br>
+                    <input type="button" onclick="calcGrade()" value="SUBMIT">
+                    <input type="reset"  onclick="resetMsg()" value="RESET">
+                     <br>  
+                        <p id="flip">
+                            Click to Show/Hide Instructions
+                        </p>
+                    <br>
+
+                    <table class="results">
+                        <tr>
+                            <td><label for="finalGrd">Final Average is</label></td>
+                            <td><input type="text" id="finalGrd" name="finalGrd"
+                                       class="nums" size="10" readonly></td>
                         </tr>
-                        <tr id="Midterm">
-                            <td><label for="midExam">Enter Midterm Score: </label></td>
-                            <td><input type="text" id="midExam" name="midExam" 
-                                       class="nums" size="10"></td>
+                        <tr>
+                            <td><label for="finalLtr">Final Letter Grade is</label></td>
+                            <td><input type="text" id="finalLtr" name="finalLtr"
+                                       class="nums" size="10" readonly></td>
                         </tr>
-                        <tr id="Final">
-                            <td><label for="finalExam">Enter Final Score: </label></td>
-                            <td><input type="text" id="finalExam" name="finalExam" 
-                                       class="nums" size="10"></td>
-                        </tr>
-                        <tr id="ACR_value">
-                            <td><label for="ACR">Enter ACR Score: </label></td>
-                            <td><input type="text" id="ACR" name="ACR" 
-                                       class="nums" size="10"></td>
-                       </tr>
-                       <tr>
-                           <!-- <td> -->
-                               <!-- <input type="button" onclick="calcGrade()" value="SUBMIT"> -->
-                           <!-- </td> -->
-                           <!-- <td> -->
-                               <!-- <input type="reset" value="RESET"> -->
-                           <!-- </td> -->
-                       </tr>             
-                    </tbody>
-                </table>
-                <br>
-                <input type="button" onclick="calcGrade()" value="SUBMIT">
-                <input type="reset" value="RESET">
-                <br>
-                <table class="results">
-                    <tr>
-                        <td><label for="finalGrd">Final Average is</label></td>
-                        <td><input type="text" id="finalGrd" name="finalGrd"
-                                   class="nums" size="10" readonly></td>
-                    </tr>
-                    <tr>
-                        <td><label for="finalLtr">Final Letter Grade is</label></td>
-                        <td><input type="text" id="finalLtr" name="finalLtr"
-                                   class="nums" size="10" readonly></td>
-                    </tr>
-                </table>
-                 <br>
-                 <div id="poorGradeMsg">
-                 </div>   
-            </form>
-           </div> 
+                    </table>
+
+                    <br>
+                    <div id="poorGradeMsg"></div> 
+                    <br>
+                    <div id="describe">
+                        The following webpage contains the heading, Student Grades,
+                        <br> and uses a script that inputs a student's homework average, 
+                        <br> mid-term exam score, final exam score, and ACR (all as integers).
+                    </div>
+
+                </form>
         </section>
 
     </body>

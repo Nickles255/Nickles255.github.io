@@ -11,9 +11,25 @@
         <meta name="description" content="CLIN's CNIT 133 Homework 3 Part 2.">
         <title>HW3-Part2 Salesperson Earnings</title>
         <script>
-             $( function() {
-                 $("#sPName").tooltip({collision: "flipfit"});
-             });
+
+            $(document).ready(function() {
+                $('#sPName').tooltip({
+                    position: {
+                        my: 'center top',
+                        at: 'left center',
+                        of: '#sPName'
+                    }
+                });
+
+                // $('#sPName').tooltip('option', 'tooltipClass', 'top');
+            });
+
+            /* $( function() {
+             $("#sPName").tooltip({
+                  position: { my: "left+50 center", at: "right center"}
+              });*/
+
+
 
             function compEarnings(){
                 var curItem, curTotal, numSold, pricePerUnit, myTable;
@@ -22,19 +38,14 @@
                  
                 for(var iNum = 1, nNum = 4; iNum <= nNum; iNum ++){
                     curItem = 'sItem' + iNum;
-                    // alert(curItem);
                     curTotal = "s" + iNum + "Sold"; 
-                   // alert(curTotal);
                     pricePerUnit = myTable.rows[iNum].cells[1].innerHTML;
-                   // alert(pricePerUnit);
                     numSold = document.getElementById(curItem).value;
                     tVal = Math.round(pricePerUnit*numSold*100)/100;
 
-                    //  alert(numSold);
-                  //  alert(pricePerUnit * numSold);
                     document.getElementById(curTotal).value = tVal.toFixed(2);
-                    totAmt += tVal;
-                    document.getElementById("output").innerHTML += curItem + " ";
+                    totAmt = totAmt + tVal;
+
                 }
                 
                 document.getElementById('tSold').value = totAmt.toFixed(2);
@@ -44,42 +55,13 @@
         </script>
     </head>
     <style>
-        /*.ui-tooltip {
-            background-color: white;
-            height: 20px;
-            width: 330px;
-            padding: 0px;
-            color: darkblue;
-            opacity: 0.8;
-            position: absolute;
-            display: inline-block;
-            border: 1px black;
-        } */
-        ui-tooltip {
-    padding: 8px;
-    position: absolute;
-    z-index: 9999;
-    max-width: 300px;
-    -webkit-box-shadow: 0 0 5px #aaa;
-    box-shadow: 0 0 5px #aaa;
-    background-color: #000000;
-    font-family: Arial;
-    font-size: 10;
-    white-space: pre-line;
-}
 
-body .ui-tooltip {
-    border-width: 2px;
-}
 
    .ui-helper-hidden-accessible {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
+
     overflow: hidden;
-    padding: 0;
-    position: absolute;
+    padding: 0px;
+    position: right;
     width: 1px;
 }
 
@@ -89,13 +71,14 @@ body .ui-tooltip {
             <h1>HW3 Part 2 - Calculate Salesperson's Weekly Earnings</h1>
             <script>createNavMenu();</script>
 
-            <div>
                 <form id="salesInForm", name="salesInForm">
-                
-                <label for="sPName"><strong>Salesperson:</strong></label>
+            <div>    
+                <label for="sPName"><strong>Salesperson: </strong>  </label>
+                <br>
                 <input type="text" id="sPName" name="sPName" 
                        title="Please make sure that the salesperson's name is spelled correctly">
-
+            </div>
+            <br>
                 <table id="salesEntryTable">
                     <thead>
                     <tr>
