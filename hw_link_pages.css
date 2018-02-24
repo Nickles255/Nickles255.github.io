@@ -72,3 +72,12 @@ thead {
     padding: 10px;
     border: 1px solid black;
 }
+
+/*Tool Tip settings*/
+
+.ui-helper-hidden-accessible {
+    overflow: hidden;
+    padding: 0px;
+    position: right;
+    width: 1px;
+ }

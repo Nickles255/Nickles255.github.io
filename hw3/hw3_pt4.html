@@ -22,19 +22,21 @@
             </script>
 
             <div id="game">
-            <p id="question"></p>
+                <p id="question"></p>
 
-            <br>
-            <label for="answer">
-                Put your answer below:
-            </label>
-
-            <br>
-            <input class="nums" type="number" id="answer" size="10" autocomplete="off">
-            <input type="button" onclick="checkAnswer()" value="Submit answer">
-            <br>
-            <p id="userResult"></p>
+                <br>
+                <form id="studentAnswer">
+                    <label for="answer">Put your answer below:</label>
+                    <br>
+                    <input class="nums" type="number" id="answer" name="answer" 
+                           size="10" autocomplete="off">
+                    <br>
+                    <input type="button" onclick="checkAnswer()" value="Submit answer">
+                    <br>
+                    <p id="userResult"></p>
+                </form>
             </div>
+
         </section>
 
     </body>

@@ -20,6 +20,12 @@ function createNavMenu(){
     document.write('</nav>')
 }
 
+// clear validator messages
+// https://jqueryvalidation.org/Validator.resetForm/
+function clearValid(instr){
+    $(instr).validate().resetForm();    
+}
+
 //PART 1
 // page calculates final grade of student based on score 
 // for homework average, mid-term exam score, final exam score and ACR
@@ -86,22 +92,76 @@ function calcGrade() {
         {document.getElementById("poorGradeMsg").innerHTML = 
             "Student must retake the course!";}
         else {document.getElementById("poorGradeMsg").innerHTML = "";} 
-    }
+    } else {alert("Please enter valid values for input");}
 
 }
 
 function resetMsg(){
+    
     document.getElementById("poorGradeMsg").innerHTML = "";
+    clearValid('#gradeForm');
+    //$("#gradeForm").validate().resetForm();
 }
 
 // PART 2
 // page takes a name and user input for 4 items. 
 // sales persons' pay = $200 + (0.09 * total sales)
+$(document).ready(function(){
+        $("#salesInForm").validate({
+            rules:
+            {
+                sItem1:      {required: true, digits: true, min: 0},
+                sItem2:      {required: true, digits: true, min: 0},
+                sItem3:      {required: true, digits: true, min: 0},
+                sItem4:      {required: true, digits: true, min: 0}
+             },
+             
+            errorPlacement: function(error, element){
+              error.appendTo(element.parent("td").next("td"));
+            }          
+        });
+
+    });
+
+    function compEarnings(){
+        
+        if($("#salesInForm").valid()){
+            var curItem, curTotal, numSold, pricePerUnit, myTable;
+            var tVal, totAmt = 0;
+            myTable = document.getElementById("salesEntryTable");
+         
+            for(var iNum = 1, nNum = 4; iNum <= nNum; iNum ++){
+                curItem = 'sItem' + iNum;
+                curTotal = "s" + iNum + "Sold"; 
+                pricePerUnit = myTable.rows[iNum].cells[1].innerHTML;
+                numSold = document.getElementById(curItem).value;
+                tVal = Math.round(pricePerUnit*numSold*100)/100;
+
+                document.getElementById(curTotal).value = tVal.toFixed(2);
+                totAmt = totAmt + tVal;
+
+            }
+
+            document.getElementById('tSold').value = totAmt.toFixed(2);
+            document.getElementById('tEarn').value = (Math.round(((totAmt * 0.09) + 200)*100)/100).toFixed(2);
+            
+        } else {alert("Please enter valid values for input");}
+    }
 
 // PART 3
 // page takes user input of a floating number and converts it to 
 // farenheit or celsius based on one of the two buttons user clicks.
 // converion formula is F = (9/5 * C) + 32
+$(document).ready(function(){
+    $("#tempForm").validate({
+        rules: 
+        {
+            inTemp:  {required: true, digits: true}
+        }
+    });
+
+});
+
 function celsius(tVal){
     return ((5/9) * (tVal - 32));
 }
@@ -115,24 +175,29 @@ function fahrenheit(tVal){
 // STEP 2. creates output string and places 
 // in element names result in tempForm.
 function calcTemp(tVal, inType){
-    var result, inTypeDesc, outString;
-   //STEP 1. populate output variable depending on inType
-    if (inType == "F"){
-        result = fahrenheit(tVal);
-        inTypeDesc = "fahrenheit";
-        outTypeDesc = "celsius";
-    } else if (inType == 'C'){
-        result = celsius(tVal);
-        inTypeDesc = "celsius";
-        outTypeDesc = "fahrenheit";
-    }
+    if ($("#tempForm").valid()){
 
-    //STEP 2. create output string and place in document.
-    outString = (tVal + " " + inTypeDesc + " is equal to " + result + 
-                 " " + outTypeDesc + ".");        
-    document.forms["tempForm"].elements["result"].value = outString;
+        var result, inTypeDesc, outString;
+       //STEP 1. populate output variable depending on inType
+        if (inType == "F"){
+            result = fahrenheit(tVal).toFixed(2);
+            inTypeDesc = "fahrenheit";
+            outTypeDesc = "celsius";
+        } else if (inType == 'C'){
+            result = celsius(tVal).toFixed(2);
+            inTypeDesc = "celsius";
+            outTypeDesc = "fahrenheit";
+        }
+
+        //STEP 2. create output string and place in document.
+        outString = (tVal + " " + inTypeDesc + " is equal to " + result + 
+                     " " + outTypeDesc + ".");        
+        document.forms["tempForm"].elements["result"].value = outString;
+
+    } else {alert("Please enter valid values for input");}
 
 }
+
 
 // PART 4
 // page uses Math.random to produce two one-digit integers. Then 
@@ -141,8 +206,19 @@ function calcTemp(tVal, inType){
 // if correct display string "Very good!" and prompt user if they wish to continue.
 // if incorrect display "No. Please try again." Let student try the same
 // question again until student gets it right.
+
+$(document).ready(function(){
+    $("#studentAnswer").validate({
+        rules: 
+        {
+            answer:  {required: true, digits: true}
+        }
+    });
+
+});
+
 var val1, val2, numQues = 0, numTry = 0;
- 
+
 //function creates a multiplication problem and adds one for numQues counter
 //everytime it is executed.
 function getNextProblem(){
@@ -160,22 +236,23 @@ function getNextProblem(){
 // if it is correct the execute continueGame function.
 // if incorect output incorrect response and ask student to try again.
 function checkAnswer(){
-    var userAnswer = document.getElementById("answer").value,
-        actualAnswer = val1 * val2;
-        numTry += 1;
-        document.getElementById("answer").value = null;
-        
-    if (userAnswer == actualAnswer){
-        document.getElementById("userResult").innerHTML =
-        "Your answer, " + userAnswer + ",was correct!"; 
-        continueGame();
-    
-    } else {
-        document.getElementById("userResult").innerHTML =
-        "Your answer, " + userAnswer + ",was incorrect!" +
-        "<br>" + "Please enter another answer and submit again."; 
-        
-    }
+    if($("#studentAnswer").valid()){
+        var userAnswer = document.getElementById("answer").value,
+            actualAnswer = val1 * val2;
+            numTry += 1;
+            document.getElementById("answer").value = null;
+
+        if (userAnswer == actualAnswer){
+            document.getElementById("userResult").innerHTML =
+            "Your answer, " + userAnswer + ",was correct!"; 
+            continueGame();
+            
+        } else {
+            document.getElementById("userResult").innerHTML =
+            "Your answer, " + userAnswer + ",was incorrect!" +
+            "<br>" + "Please enter another answer and submit again."; 
+        }
+    } else {alert("Please enter valid values for input");}
 }
 
 //function creates a confirm textbox popup. 
