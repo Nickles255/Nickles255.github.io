@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
         <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
         <script src="hw3_scripts.js"></script>
@@ -12,11 +13,8 @@
     </head>
 
     <body>
-        <header>
-            <h1>HW3 Part 1 - Calculate Student Grades</h1>
-        </header>    
         <section>
-            <h3>Student Grades</h3>
+            <h1>HW3 Part 1 - Calculate Student Grades</h1>
             <script>createNavMenu();</script> 
 
                 <form id="gradeForm", name="gradeForm">
@@ -30,9 +28,8 @@
                             </tr>
                             <tr id="Midterm">
                                 <td><label for="midExam">Enter Midterm Score: </label></td>
-                                <td><input type="text" id="midExam" name="midExam" 
-                                           class="nums" size="10"></td>
-                            </tr>
+                                <td><input type="text" id="midExam" name="midExam"
+                                           class="nums" size="10"></td> 
                             <tr id="Final">
                                 <td><label for="finalExam">Enter Final Score: </label></td>
                                 <td><input type="text" id="finalExam" name="finalExam" 
