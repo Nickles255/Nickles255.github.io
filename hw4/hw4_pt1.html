@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            #Second_Result {
+                background: rgba(255, 255, 255, 0.1);
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
+        <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- java ui draggable script -->
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  
+        <script src="hw4_scripts.js"></script>
+        <meta name="description" content="CLIN's CNIT 133 Homework 4 Part 1.">
+        <title>HW4-Part1 Product and Sums</title>
+    </head>
+
+    <body>
+        <section>
+            <h1>HW4 Part 1 - Product and Sums</h1>
+            <script>createNavMenu();</script> 
+
+        <script>
+            $(document).ready(function(){
+                var base = 5, step = 3;
+                var sum_total, prod_total;
+                var j = 3;
+            // Part 1 a. for loop.
+            sum_total = 0;
+            prod_total = 1;
+
+            for (i = 5; i <= 20; i+= 3){
+                
+                sum_total += i;
+                prod_total *= i; 
+                if (i !== 5) {
+                    document.getElementById("Result_1").innerHTML += ' + ';
+                    document.getElementById("Result_2").innerHTML += ' * ';
+                }
+                
+                document.getElementById("Result_1").innerHTML += i;
+                document.getElementById("Result_2").innerHTML += i;
+            }
+
+            document.getElementById("Result_1").innerHTML += ' = ' + sum_total;
+            document.getElementById("Result_2").innerHTML += ' = ' + prod_total.toLocaleString();
+            // Part 1 b. while loop.
+            sum_total = 0;
+            prod_total = 1;
+            
+            while (j <= 31){
+                sum_total += j;
+                prod_total *= j;
+                if (j !== 3){
+                    document.getElementById("Result_3").innerHTML += ' + ';
+                    document.getElementById("Result_4").innerHTML += ' * ';
+                }
+
+                document.getElementById("Result_3").innerHTML += j;
+                document.getElementById("Result_4").innerHTML += j;
+                j += 4;
+
+            }
+            document.getElementById("Result_3").innerHTML += ' = ' + sum_total;
+            document.getElementById("Result_4").innerHTML += ' = ' + prod_total.toLocaleString();
+
+            $("#Second_Result").draggable();
+        }
+    
+        );
+        </script>
+
+        <form id="First_Result">
+            <label id="LAB1"><strong>FOR LOOP for every third integer between 5 and 20 inclusive.</strong></label>
+            <br>
+            <div id="Result_1"></div>
+            <div id="Result_2"></div>
+        </form>
+        <br>        
+
+        <form id="Second_Result" class="ui-widget-content">
+            <label id="LAB2"><strong>WHILE LOOP for every fourth integer between 3 and 31 inclusive.</strong></label>
+            <br>
+            <div id="Result_3"></div>
+            <div id="Result_4"></div>
+            <br>
+            <label id="Drag_Lab">SECOND RESULT CAN BE DRAGGED</label>
+        </form>
+        
+        <br>
+
+        </section>
+
+    </body>
+
+
+
+</html>
+            <div id="Result_3"></div>
+            <div id="Result_4"></div>
+        </form>
+        </section>
+
+    </body>
+
+
+
+</html>
