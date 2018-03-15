@@ -10,13 +10,83 @@
         <script src="hw4_scripts.js"></script>
         <meta name="description" content="CLIN's CNIT 133 Homework 4 Part 1.">
         <title>HW4-Part4 Square Shapes</title>
+        <style>
+            #squareSpaceText {
+                font-family: 'Courier New', Courier, monospace;
+                line-height: 0.7;
+                margin: 10px;
+            };
+        </style>
+
+        <script>
+            $(document).ready(function(){
+                $('#createSquareForm').validate({
+                    rules:{
+                        squareIn: {required: true, digits: true, min:2, max: 10}
+                    },
+                    messages:{
+                        squareIn: "Please enter a value between 2 and 10"
+                    }
+                })
+            });
+
+            function createSquare(tInt){
+                var lRow, lCol, outputLoc = document.getElementById('squareSpaceText');
+                if($("#createSquareForm").valid()){
+                    // reset ouput location to empty string.
+                    outputLoc.innerHTML = '';
+
+                    //generate loop for rows and columns placing stars in correct locations.
+                    for (lRow = 1; lRow <=tInt; lRow++){
+                        for(lCol = 1; lCol <=tInt; lCol++){
+                            if(lRow == 1 || lRow == tInt){
+                                outputLoc.innerHTML +='*';
+                            } else if (lCol == 1 || lCol == tInt){
+                                outputLoc.innerHTML +='*';
+                            } else {
+                                outputLoc.innerHTML +=' ';
+                            } //end if
+                        } //end inner for
+
+                        outputLoc.innerHTML +='<br>'
+                    } //end outer for
+
+                } //end validator
+
+            } //end createSquare
+
+            function clearSquare(){
+                document.getElementById('squareSpaceText').innerHTML = '';
+
+            }
+        </script>
+
     </head>
 
     <body>
         <section>
             <h1>HW4 Part 4 - Square Shapes</h1>
             <script>createNavMenu();</script> 
+            <form id="createSquareForm">
+                <table>
+                    <tr colspan ="2"><label for="squareIn">Please insert size of square to be generated between 1 and 10</label></tr>
+                    <tr colspan ="2"><input type="number" id="squareIn" name="squareIn"> </tr>
+                    <br>
+                    <tr>
+                        <td>
+                            <input type="button" value="SUBMIT" 
+                                   onclick="createSquare(document.getElementById('squareIn').value)">
+                        </td>
+                        
+                        <td>
+                            <input type="reset" value="RESET" onclick="clearSquare()">
+                        </td>
 
+                    </tr>
+                </table>
+            </form>
+            
+            <pre id="squareSpaceText"></pre>
             
         </section>
 
