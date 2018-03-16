@@ -26,6 +26,7 @@ label {
     font-style: italic;
 
 }
+
 #describe {
     padding: 20px;
     display: none;
@@ -41,6 +42,18 @@ label {
 #poorGradeMsg {
     font-weight: bold;
 }
+
+    /* draggable results in hw4 part 1 using opaq and drag backgrounds*/
+#Second_Result, #First_Result {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#squareSpaceText {
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 0.7;
+    margin: 10px;
+}
+
     /* nums class numbers values are aligned right */
 .nums {
     text-align: right;

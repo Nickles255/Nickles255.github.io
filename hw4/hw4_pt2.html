@@ -6,7 +6,6 @@
         <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
         <script src="hw4_scripts.js"></script>
         <meta name="description" content="CLIN's CNIT 133 Homework 4 Part 1.">
         <title>HW4-Part2 Compound Interest Calculation</title>
@@ -17,28 +16,7 @@
             <script>createNavMenu();</script> 
             
             <script>
-                var interest = 0.05, initDeposit = 1000 , curOut = 0.0;
-                usdOptions = {style: "currency", currency: "USD"};
-                document.write("<table class=\"InterestTbl\">");
-                document.write("<thead><tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr></thead>")
-                for (var interest = 0.05; interest <= .1; interest+= 0.01){
-                    for (var year = 1; year <= 10; year++ ){
-
-                        curOut = initDeposit * (1 + interest)**year;
-                        document.write("<tbody><tr><td class=\"nums\">" + year +
-                                       "</td><td class=\"nums\">" + curOut.toLocaleString("en", usdOptions) +
-                                       "</td><td class=\"nums\">" + interest.toLocaleString("en", {style: "percent"}) +
-                                       "</td></tr></tbody>");
-
-                    }
-                }
-                document.write("</table>");          
-                // Alternating colors using Javascript.
-                // https://stackoverflow.com/questions/8128581/alternate-row-colors-using-jquery
-                $("tr:even").css("background-color", "#eeeeee");
-                $("tr:odd").css("background-color", "#ffffff");
-                $("tr:eq(0)").css("background-color", "black");
-                $("tr:eq(0)").css("color", "white");
+                 createInterestTbl(1000);          
             </script>
             
         </section>
