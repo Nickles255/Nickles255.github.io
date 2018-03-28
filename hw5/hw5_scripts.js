@@ -7,15 +7,13 @@ function createNavMenu(){
     document.write('<nav class="menu">')
     document.write('<ul>');
     document.write('<li><a class="mainpg" href="../index.html">CLIN Page</a></li>');
-    document.write('<li><a href="hw3.html">HW3 Page</a></li>');
-    document.write('<li><a href="hw3_pt1.html">' + 
-                   'Part 1 - Calc Student Grades</a></li>');
-    document.write(' <li><a href="hw3_pt2.html">' + 
-                   'Part 2 - Weekly Pay for Sales</a></li>');
-    document.write('<li><a href="hw3_pt3.html">' +
-                   'Part 3 - Temp Conversion</a></li>');
-    document.write('<li><a href="hw3_pt4.html">' + 
-                   'Part 4 - Simple Math Practice</a></li>');
+    document.write('<li><a href="hw5.html">HW5 Page</a></li>');
+    document.write('<li><a href="hw5_pt1.html">' + 
+                   'Part 1 - Form Validation</a></li>');
+    document.write(' <li><a href="hw5_pt2.html">' + 
+                   'Part 2 - Pulldown Menus</a></li>');
+    document.write('<li><a href="hw5_pt3.html">' +
+                   'Part 3 - State Info - 2D Array</a></li>');
     document.write('</ul>');
     document.write('</nav>')
 }

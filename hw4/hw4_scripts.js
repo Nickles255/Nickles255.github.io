@@ -111,10 +111,15 @@ function createInterestTbl (initDeposit) {
 
     // Alternating colors using Jquery.
     // https://stackoverflow.com/questions/8128581/alternate-row-colors-using-jquery
-    $("tr:even").css("background-color", "#eeeeee");
-    $("tr:odd").css("background-color", "#ffffff");
-    $("tr:eq(0)").css("background-color", "black");
+    $("tr:even").css("background-color", "lightCoral");
+    $("tr:odd").css("background-color", "yellow");
+    $("tr:eq(0)").css("background-color", "maroon");
     $("tr:eq(0)").css("color", "white"); 
+    // $("table tr:first-child").css({
+        // "background-color": "maroon"
+        // , "color": "white"
+    // }); // suggestion if we produce more than 1 table... setting the document write for beginning and end
+    // of the table within the outer loop.
 }
 
 // Part 3. Retail sales calculation.

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
+        <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="hw5_scripts.js"></script>
+        <meta name="description" content="CLIN's CNIT 133 Homework 4 Part 1.">
+        <title>HW5-Part 2 Pulldown menus</title>
+        <script>
+             
+            function goToNewPage(myForm) {
+                var myDestination = myForm.destList.options[myForm.destList.selectedIndex].value;
+                window.location.href = myDestination;
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <section>
+            <h1>HW5 Part 2 - Pulldown Menus</h1>
+            <script>createNavMenu();</script> 
+            <p>Below is a pull down menu to go to various websites.</p>
+            <p>Click go to go to the website selected.</p>
+            <form>
+                <select name="destList">
+                    <option value="http://www.amazon.com">Amazon</option>
+                    <option value="http://www.google.com">Google</option>
+                    <option value="http://www.ccsf.edu">CCSF Home Page</option>
+                </select>
+
+                <input type="button" value="Go" onclick="goToNewPage(this.form);">
+
+            </form>  
+            
+            <br>      
+            <p>Below is a pull down menu to go to various websites</p>
+            <p>List will automatically take you to website when you select it.</p>            
+            <form>
+                <select name="destList" onchange="goToNewPage(this.form);">
+                    <option>Select Website</option> 
+                    <option value="http://www.amazon.com">Amazon</option>
+                    <option value="http://www.google.com">Google</option>
+                    <option value="http://www.ccsf.edu">CCSF Home Page</option>
+                </select>
+            </form>            
+        </section>
+
+    </body>
+
+
+
+</html>

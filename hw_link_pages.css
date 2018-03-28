@@ -63,6 +63,16 @@ label {
 .dollars:before {
     content: "$";
 }
+
+/*Form Setting*/
+form {
+    margin-left: 225px;    
+}
+
+
+
+
+
 /*Table settings.*/
 table {
     display: inline-block;
