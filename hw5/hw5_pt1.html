@@ -1,44 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
+<!-- Validation error moved into a box -->
+<!-- http://blog.baister.net/2012/07/12/moving-jquery-validation-error-messages/ -->
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
         <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <!-- java ui draggable script -->
-        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
         <script src="hw5_scripts.js"></script>
-        <meta name="description" content="CLIN's CNIT 133 Homework 4 Part 1.">
-        <title>HW4-Part1 Product and Sums</title>
+        <meta name="description" content="CLIN's CNIT 133 Homework 5 Part 1.">
+        <title>HW5-Part1 Form Validation</title>
+        <script>
+            $(document).ready(function(){
+                $("#pInterest").validate({
+                    rules: {
+                        fullName: {required: true},
+                        gender:   {required: true},
+                        interest: {required: true},
+                        selTime:  {required: true}
+                    },
+                    messages: {
+                        fullName: "Please enter your name",
+                        gender:   "Please select a gender you identify with",
+                        interest: "Please select one sport which interest you",
+                        selTime:  "Please chose a time which is convenient for you"
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    },
+                    errorContainer: $('#errorContainer'),
+                    errorLabelContainer: $('#errorContainer'),
+                    wrapper: 'li'
+                });
+            });
+                
+        </script>
     </head>
 
     <body>
         <section>
-            <h1>HW5 Part 1 - Product and Sums</h1>
+            <h1>HW5 Part 1 - Form Validation</h1>
             <script>createNavMenu();</script> 
 
-            <form id="First_Result" class="ui-widget-content">
-                <label id="LAB1"><strong>FOR LOOP for every third integer between 5 and 20 inclusive.</strong></label>
+            <form id="pInterest" action="mailto:clin@ccsf.edu" method="POST">
+                <p>
+                    <label for="fullName">Full Name: </label>
+                    <input type="text" id="fullName" name="fullName">
+                </p>
                 <br>
-                <div id="Result_1"></div>
-                <div id="Result_2"></div>
+                <p>  
+                    <label>Gender: </label>
+                    <input type="radio" name="gender" value="male">Male<br>
+                    <input type="radio" name="gender" value="female">Female<br>
+                    <input type="radio" name="gender" value="NA">Other
+                </p>
                 <br>
+                <p>
+                    <label>Interests: (Select all that apply)</label>
+                    <input type="checkbox" name="interest" value="Baseball">Baseball<br>
+                    <input type="checkbox" name="interest" value="Basketball">Basketball<br>
+                    <input type="checkbox" name="interest" value="Soccer">Soccer<br>
+                    <input type="checkbox" name="interest" value="Yoga">Yoga<br>
+                    <input type="checkbox" name="interest" value="Kung Fu">Kung Fu<br>
+                </p>
+                <br>
+                <p>
+                    <label>Avaiability: </label>
+                    <select name="selTime" size="4">
+                        <option>Early Morning (before 7AM)</option>
+                        <option>Morning (before 12 PM)</option>
+                        <option>Afternoon (after 12 PM)</option>
+                        <option>Evening (after 6 PM)</option>
+                    </select>
+                </p>
+                <br>
+                <input type="submit">
+                <div id="errorContainer">
+                    <p>Please correct the following errors and try again:</p>
+                    <ul>
+                </div>
             </form>
-
-            <br>        
-
-            <form id="Second_Result" class="ui-widget-content">
-                <label id="LAB2"><strong>WHILE LOOP for every fourth integer between 3 and 31 inclusive.</strong></label>
-                <br>
-                <div id="Result_3"></div>
-                <div id="Result_4"></div>
-                <br>
-            </form>
-
-            <br>
-            
-            <label id="Drag_Lab">LOOP RESULTS BOXES CAN BE DRAGGED</label>
         </section>
 
     </body>

@@ -69,10 +69,23 @@ form {
     margin-left: 225px;    
 }
 
+/*Error Container*/
+#errorContainer{
+    display: none;
+    overflow: auto;
+    background-color: white;
+    border: 1px solid red;
+    padding-top: 0;
+}
 
+#errorContainer label {
+    float: none;
+    width: auto;
+}
 
-
-
+input.error {
+    border: 1px solid red;
+}
 /*Table settings.*/
 table {
     display: inline-block;
