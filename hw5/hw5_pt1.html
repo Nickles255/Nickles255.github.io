@@ -13,31 +13,6 @@
         <script src="hw5_scripts.js"></script>
         <meta name="description" content="CLIN's CNIT 133 Homework 5 Part 1.">
         <title>HW5-Part1 Form Validation</title>
-        <script>
-            $(document).ready(function(){
-                $("#pInterest").validate({
-                    rules: {
-                        fullName: {required: true},
-                        gender:   {required: true},
-                        interest: {required: true},
-                        selTime:  {required: true}
-                    },
-                    messages: {
-                        fullName: "Please enter your name",
-                        gender:   "Please select a gender you identify with",
-                        interest: "Please select one sport which interest you",
-                        selTime:  "Please chose a time which is convenient for you"
-                    },
-                    submitHandler: function(form) {
-                        form.submit();
-                    },
-                    errorContainer: $('#errorContainer'),
-                    errorLabelContainer: $('#errorContainer'),
-                    wrapper: 'li'
-                });
-            });
-                
-        </script>
     </head>
 
     <body>
