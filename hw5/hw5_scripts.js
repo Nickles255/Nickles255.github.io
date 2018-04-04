@@ -7,7 +7,7 @@ function createNavMenu(){
     document.write('<nav class="menu">')
     document.write('<ul>');
     document.write('<li><a class="mainpg" href="../index.html">CLIN Page</a></li>');
-    document.write('<li><a href="hw5.html">HW5 Page</a></li>');
+    document.write('<li><a href="hw5.html">HW5 Main Page</a></li>');
     document.write('<li><a href="hw5_pt1.html">' + 
                    'Part 1 - Form Validation</a></li>');
     document.write(' <li><a href="hw5_pt2.html">' + 
@@ -19,31 +19,79 @@ function createNavMenu(){
 }
 
 //Part 1. Development of form validation 
-//STEP 1. set rules for each named section of form.
-//STEP 2. create messages for each named section of form.
-//STEP 3. errorContainer assigned the location to place all error messages.
-$(document).ready(function(){
-    $("#pInterest").validate({
-        rules: {
-            fullName: {required: true},
-            gender:   {required: true},
-            interest: {required: true},
-            selTime:  {required: true}
-        },
-        messages: {
-            fullName: "Please enter your name",
-            gender:   "Please select a gender you identify with",
-            interest: "Please select one sport which interest you",
-            selTime:  "Please chose a time which is convenient for you"
-        },
-        submitHandler: function(form) {
-            form.submit();
-        },
-        errorContainer: $('#errorContainer'),
-        errorLabelContainer: $('#errorContainer'),
-        wrapper: 'li'
-    });
-});
+//STEP 1. create form and test each one from bottom of the form on up.
+function validateForm(){
+    var valid = true;
+    var l_obj = document.mValidForm;
+
+    if(valid == true){valid = validTime(l_obj);}
+    if(valid == true){valid = validInterest(l_obj);}
+    if(valid == true){valid = validGender(l_obj);}
+    if(valid == true){valid = validName(l_obj);}
+    
+    return valid;
+}
+//-- textbox Name validator
+function validName(p_obj){
+    var returnVal = true, nameLen = p_obj.fullName.value.length;
+    
+    if (nameLen == 0) {
+        alert("Please provide your name!");
+        p_obj.fullName.focus();
+        returnVal = false;
+    }
+
+    return returnVal;
+}
+
+//-- radio box gender validtor
+function validGender(p_obj){
+    var returnVal = true; numChecked = 0;
+    for(i=0; i < 3; i++){
+        if (p_obj.gender[i].checked == true){
+            numChecked ++;
+        }
+    }
+
+    if (numChecked == 0){
+        alert("Please select a gender");
+        p_obj.gender[0].focus();
+        returnVal = false;
+    }
+
+    return returnVal;
+}
+
+//-- check box interest validator
+function validInterest(p_obj){
+    var returnVal = true; numChecked = 0;
+    for(i = 0; i < 5; i++){
+        if(p_obj.interest[i].checked == true){
+           numChecked ++;     
+        }
+    }
+
+    if (numChecked == 0){
+        alert("Please select at least one interest");
+        p_obj.interest[0].focus();
+        returnVal = false;
+    }
+
+    return returnVal;
+}
+//-- selection box time validation
+function validTime(p_obj){
+    var returnVal = true;
+    if(p_obj.selTime.value == ""){
+        alert("Please select availability value");
+        p_obj.selTime.focus();
+        returnVal = false;
+    }
+
+    return returnVal;
+}
+
+
 
 //PART 2. event handler in pull down menu executes this function
 //        for both button and onchange parameter.

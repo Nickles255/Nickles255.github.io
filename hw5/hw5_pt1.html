@@ -8,8 +8,8 @@
         <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
         <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <!-- <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script> -->
         <script src="hw5_scripts.js"></script>
         <meta name="description" content="CLIN's CNIT 133 Homework 5 Part 1.">
         <title>HW5-Part1 Form Validation</title>
@@ -17,16 +17,16 @@
 
     <body>
         <section>
-            <h1>HW5 Part 1 - Form Validation</h1>
+            <h1>CNIT 133 HW5 Part 1 - Form Validation</h1>
             <script>createNavMenu();</script> 
 
-            <form id="pInterest" action="mailto:clin@ccsf.edu" method="POST">
+            <form class="pInterest" name="mValidForm" action="mailto:clin@ccsf.edu" method="POST" onsubmit="return validateForm();">
                 <p>
                     <label for="fullName">Full Name: </label>
                     <input type="text" id="fullName" name="fullName">
                 </p>
                 <br>
-                <p>  
+                <p id="gender">  
                     <label>Gender: </label>
                     <input type="radio" name="gender" value="male">Male<br>
                     <input type="radio" name="gender" value="female">Female<br>
@@ -43,7 +43,7 @@
                 </p>
                 <br>
                 <p>
-                    <label>Avaiability: </label>
+                    <label>Availability: </label>
                     <select name="selTime" size="4">
                         <option>Early Morning (before 7AM)</option>
                         <option>Morning (before 12 PM)</option>
@@ -53,10 +53,6 @@
                 </p>
                 <br>
                 <input type="submit">
-                <div id="errorContainer">
-                    <p>Please correct the following errors and try again:</p>
-                    <ul>
-                </div>
             </form>
         </section>
 

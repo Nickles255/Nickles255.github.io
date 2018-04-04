@@ -23,7 +23,10 @@ Spring 2018.
     Homework 4: 3/15/2018 complete HW.
 
     Homework 5: 3/28/2018 completed part 2. 
-    
+                4/4/2018 completed all parts.
+                          Part 1. form validation utilized javascript to do validation instead of jquery.
+                          Part 2. pulldown menues
+                          Part 3. State Info - 2D array. 2D array for data to populate results after user inserts in input box.
 
 
     local drive location is:

@@ -69,24 +69,12 @@ form {
     margin-left: 225px;    
 }
 
-/*Error Container*/
-#errorContainer{
-    display: none;
-    overflow: auto;
-    background-color: white;
-    border: 1px solid red;
-    padding-top: 0;
+/*on focus highlight*/
+select:focus, input:focus{
+    background-color: yellowgreen;
 }
 
-#errorContainer label {
-    float: none;
-    width: auto;
-}
-
-input.error {
-    border: 1px solid red;
-}
-/*Table settings.*/
+    /*Table settings.*/
 table {
     display: inline-block;
     vertical-align: text-top;
