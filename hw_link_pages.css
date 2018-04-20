@@ -70,9 +70,9 @@ form {
 }
 
 /*on focus highlight*/
-select:focus, input:focus{
+/*select:focus, input:focus{
     background-color: yellowgreen;
-}
+}*/
 
     /*Table settings.*/
 table {
