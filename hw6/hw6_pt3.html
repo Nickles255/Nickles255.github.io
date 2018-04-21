@@ -4,18 +4,102 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
         <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+        <!-- JQUERY MASK PLUGIN for PHONE NUMBER -->
+        <script src="https://raw.githubusercontent.com/igorescobar/jQuery-Mask-Plugin/master/src/jquery.mask.js"></script>
         <script src="hw6_scripts.js"></script>
         <meta name="description" content="CLIN's CNIT 133 Homework 6 Part 3.">
-        <title>HW6-Part 3 Some State Information </title>
+        <title>HW6-Part 3 Date Conversion and Split function </title>
+        <script>    
+        $(document).ready(function(){
+            function currentDate() {
+                /* Prints out various types of current date. 
+                   displays hour difference between UTC and PDT and EDT.
+                   constants are MIN_IN_HR and PDT_toEDT_HR_OFFSET.
+                */
+                var curDate = new Date(), output;
+                var MIN_IN_HR = 60, PDTtoEDT_HR_OFFSET = -3;
+                                
+                output = curDate.toString();
+                document.forms["date_phone_Form"].elements["dateToStr"].value = output;
+
+                output = curDate.toLocaleString();
+                document.forms["date_phone_Form"].elements["dateToLoc"].value = output;
+
+                output = curDate.toUTCString();
+                document.forms["date_phone_Form"].elements["dateToUTC"].value = output;
+
+                output = curDate.getTimezoneOffset()/MIN_IN_HR;
+                document.forms["date_phone_Form"].elements["PDTnUTC"].value = output;
+
+                output = output + PDTtoEDT_HR_OFFSET;
+                document.forms["date_phone_Form"].elements["EDTnUTC"].value = output; 
+            }
+            
+          
+            currentDate();
+
+        }) 
+        </script>
     </head>
     <body>
         <section>
-            <h1>CNIT 133 HW6 Part 3 - Information on Select States</h1>
+            <h1>CNIT 133 HW6 Part 3 - Date Conversion and Split function</h1>
             <script>createNavMenu();</script> 
         </section>
+        
+        <!-- <p id="dateToStr"></p> -->
+        <br>
+        <form id="date_phone_Form">
+            <table>
+                <tr><th colspan="2">Current Date</th></tr>
+                <tr>
+                    <td>Using toString():</td>
+                    <td><input type="text" name="dateToStr" size="60" readonly></td>
+                </tr>
+                <tr>
+                    <td>Using toLocalString():</td>
+                    <td><input type="text" name="dateToLoc" size="60" readonly></td>
+                </tr>
+                <tr>
+                    <td>Using toUTCString():</td>
+                    <td><input type="text" name="dateToUTC" size="60" readonly></td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>Hours difference between PDT and UTC:</td>
+                    <td><input type="text" name="PDTnUTC" size="60" readonly></td>
+                </tr>
+                    <td>Hours difference between EDT and UTC:</td>
+                    <td><input type="text" name="EDTnUTC" size="60" readonly></td>
+                </tr>
+
+
+            </table>
+        <br>
+        <br>
+            <table>
+                    <tr><th colspan="2">Phone Numbers</th></tr>
+                <tr>
+                    <td><label for="phnInput">Please enter a phone number: </label></td>
+                    <td><input type="text" id="phnIn" name="phnIn" class="phone_In" placeholder="(999) 999-9999"></td>
+                    <td><input type="button" value="SPLIT" 
+                               onclick="splitPhone(document.getElementById('phnIn').value)"></td>
+                </tr>
+                <tr>
+                    <td><label for="areaCode">Area Code</label></td>
+                    <td><input type="text" id="areaCode" name="areaCode" readonly></td>
+                </tr>
+                <tr>
+                    <td><label for="phnNum">Phone Number</label></td>
+                    <td><input type="text" id="phnNum" name="phnNum" readonly></td>
+                </tr>
+
+
+            </table>
+        </form>
     </body>
 
 </html>

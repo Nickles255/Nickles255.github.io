@@ -18,3 +18,25 @@ function createNavMenu(){
     document.write('</nav>')
 }
 
+function splitPhone (phnInput){
+    /* Function checks if number is correct (xxx) xxx-xxxx
+       and will parse value based on regular expression
+       the area code is presented in area code box
+       the seven digit phone number is presented in teh phone number box.
+    */ 
+    var phoneRegExp =/^(\()(\d{3})(\))(\s?)(\d{3})(-\d{4})$/;    
+    var parts = phnInput.match(phoneRegExp);
+
+    if (phoneRegExp.test(phnInput)){
+        document.getElementById('areaCode').value = parts[2];
+        document.getElementById('phnNum').value = parts[5] + parts[6];
+        
+    } else {
+        alert("inputted phone # has wrong format \n" + 
+              "Please use exactly (xxx) xxx-xxxx \n" +
+              "Each x must be a number"
+              );
+    }
+}
+
+
