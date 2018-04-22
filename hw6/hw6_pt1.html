@@ -10,48 +10,6 @@
         <meta name="description" content="CLIN's CNIT 133 Homework 6 Part 1.">
         <title>HW6-Part1 Math Methods</title>
     </head>
-    <script>
-        function calcMath(tVal){
-            var result, outString, matchNum = /^[0-9]+(\.[0-9]{4,})$/;
-            //(\.d{4}d?)$/;
-            if (tVal.match(matchNum)){
-                // original value to display
-                outString = "\nThe original value is: " + tVal;
-                
-                // original value rounded to nearest integer.
-                result = Math.round(tVal);
-                outString += "\nThe original value rounded to the " + 
-                             "nearest integer: " + result;
-
-                // original value squarerooted and rounded to nearest integer.
-                result = Math.round(Math.sqrt(tVal));               
-                outString += "\nThe original value square root and then rounded " + 
-                             "to the nearest integer: " + result;
-
-
-                //  orignal value rounded to nearest tenth
-                result = Math.round(tVal*10)/10.0;
-                outString += "\nThe original value rounded to the " + 
-                             "nearest tenth: " + result;
-                
-
-                //  orignal value rounded to nearest hudredths
-                result = Math.round(tVal*100)/100.0;
-                outString += "\nThe original value rounded to the " + 
-                             "nearest hundredth: " + result;
-
-                //  orignal value rounded to nearest thousandths
-                result = Math.round(tVal*1000)/1000.0;
-                outString += "\nThe original value rounded to the " + 
-                             "nearest thousandths: " + result;
-
-                // output results.
-                document.forms["mathForm"].elements["results"].value = outString;
-            } else {
-                alert("Please enter at least 4 digits after decimal place!");
-            }        
-        }
-    </script>
     <body>
         <section>
             <h1>CNIT 133 HW6 Part 1 - Math Methods</h1>
@@ -72,6 +30,7 @@
                         
                     </script>
                 <!-- examine hw3 pt3 for reference -->
+                <p>RESULTS: </p>
                 <textarea rows="8" cols="80" name="results" readonly> 
                     
 

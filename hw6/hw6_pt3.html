@@ -14,33 +14,8 @@
         <title>HW6-Part 3 Date Conversion and Split function </title>
         <script>    
         $(document).ready(function(){
-            function currentDate() {
-                /* Prints out various types of current date. 
-                   displays hour difference between UTC and PDT and EDT.
-                   constants are MIN_IN_HR and PDT_toEDT_HR_OFFSET.
-                */
-                var curDate = new Date(), output;
-                var MIN_IN_HR = 60, PDTtoEDT_HR_OFFSET = -3;
-                                
-                output = curDate.toString();
-                document.forms["date_phone_Form"].elements["dateToStr"].value = output;
-
-                output = curDate.toLocaleString();
-                document.forms["date_phone_Form"].elements["dateToLoc"].value = output;
-
-                output = curDate.toUTCString();
-                document.forms["date_phone_Form"].elements["dateToUTC"].value = output;
-
-                output = curDate.getTimezoneOffset()/MIN_IN_HR;
-                document.forms["date_phone_Form"].elements["PDTnUTC"].value = output;
-
-                output = output + PDTtoEDT_HR_OFFSET;
-                document.forms["date_phone_Form"].elements["EDTnUTC"].value = output; 
-            }
-            
           
             currentDate();
-
         }) 
         </script>
     </head>
@@ -68,10 +43,10 @@
                     <td><input type="text" name="dateToUTC" size="60" readonly></td>
                 </tr>
                 <tr>
-                <tr>
                     <td>Hours difference between PDT and UTC:</td>
                     <td><input type="text" name="PDTnUTC" size="60" readonly></td>
                 </tr>
+                <tr>
                     <td>Hours difference between EDT and UTC:</td>
                     <td><input type="text" name="EDTnUTC" size="60" readonly></td>
                 </tr>
@@ -81,22 +56,21 @@
         <br>
         <br>
             <table>
-                    <tr><th colspan="2">Phone Numbers</th></tr>
+                    <tr><th colspan="3">Phone Numbers</th></tr>
                 <tr>
-                    <td><label for="phnInput">Please enter a phone number: </label></td>
+                    <td><label for="phnIn">Please enter a phone number: </label></td>
                     <td><input type="text" id="phnIn" name="phnIn" class="phone_In" placeholder="(999) 999-9999"></td>
                     <td><input type="button" value="SPLIT" 
                                onclick="splitPhone(document.getElementById('phnIn').value)"></td>
                 </tr>
                 <tr>
                     <td><label for="areaCode">Area Code</label></td>
-                    <td><input type="text" id="areaCode" name="areaCode" readonly></td>
+                    <td colspan="2"><input type="text" id="areaCode" name="areaCode" readonly></td>
                 </tr>
                 <tr>
                     <td><label for="phnNum">Phone Number</label></td>
-                    <td><input type="text" id="phnNum" name="phnNum" readonly></td>
+                    <td colspan="2"><input type="text" id="phnNum" name="phnNum" readonly></td>
                 </tr>
-
 
             </table>
         </form>

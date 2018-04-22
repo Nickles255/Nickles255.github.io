@@ -9,34 +9,6 @@
         <script src="hw6_scripts.js"></script>
         <meta name="description" content="CLIN's CNIT 133 Homework 6 Part 2.">
         <title>HW6-Part 2 Pulldown menus</title>
-        <script>
-            function findChar(inStr, searchChar){
-                var result = 0, outString = "The character search was matched ";
-                var myText = "<html>\n";
-                    myText += "<head>\n";
-                    myText += "<title>Text not found</title>\n";
-                    myText += "</head>\n";
-                    myText += "<body>\n";
-                    myText += "<p><strong>" + 
-                              "Search character not found in text String!" +
-                              "</strong></p>\n";
-                    myText += "</body>\n";
-                    myText += "</html>";
-
-                result = inStr.split(searchChar).length - 1;
-                outString += result + " times \n" + "in the text enetered into the box!"
-                if (result < 0){
-                    alert("Please enter string in text box and search box")
-                } else if (result === 0){
-                    var newWindow = window.open("", "new_window", "top=200,left=50,width=300,height=100");
-                    newWindow.focus();
-                    newWindow.document.write(myText);
-                } else {
-                    document.forms["textForm"].elements["textResult"].value = outString;
-                }
-            } 
-        </script>
-
     </head>
 
     <body>
@@ -44,21 +16,25 @@
             <h1>CNIT 133 HW6 Part 2 - Pulldown Menus</h1>
             <script>createNavMenu();</script> 
             <form id="textForm">
-                <label for="textInput">Please input some text into box.</label>
+                <p>Please input some text into box.</p>
                 <textarea rows = "9" cols = "80" id="textInput" name="textInput"></textarea>
                 <br>
                 <table>
                     <tr>
-                        <td><label for="charInput">Please enter characters to search.</label></td>
+                        <td><label for="charIn">Please enter characters to search.</label></td>
                         <td><input type="text" id="charIn" name="charIn"></td>
                     </tr>
-                    <td><input type="button" value="Search"
-                               onclick="findChar(document.getElementById('textInput').value,
-                                                 document.getElementById('charIn').value)"></td>
-                </table>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" value="Search"
+                                   onclick="findChar(document.getElementById('textInput').value,
+                                            document.getElementById('charIn').value)">
+                        </td>
+                    </tr>
+                    </table>
                 <br>                
                 <br>  
-                <label for="textResult">Results</label>
+                <p>Results</p>
                 <textarea rows = "4" cols = "80" id="textResult" name="textResult" readonly>
 
                 </textarea>
