@@ -6,16 +6,77 @@
         <meta charset="utf-8">
         <meta name="description" content="CLIN's CNIT 133 Homework 7 page.">
         <script src="hw7_scripts.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.part_desc').hide();
+                 $('.main h2').toggle(
+                    function(){
+                        $(this).next('.part_desc').slideDown();
+                        $(this).addClass('close');
+                    },
+                    function(){
+                        $(this).next('.part_desc').fadeOut();
+                        $(this).removeClass('close');
+                    }
+                 );
+
+            });
+        </script>
+        <style>
+            h2 {background: url(open.png) no-repeat 0 11px;
+            padding: 10px 0 0 25px;
+            cursor: pointer;
+            }
+
+            h2.close{
+                background-image: url(close.png);
+            }
+
+            .part_desc {
+                margin-left: 25px;
+            }
+
+            .hlink {
+                color: blue;
+                font-size: 18pt;
+                text-decoration: underline;
+            }
+        </style>
+
         <title>CLIN homework 7 page</title>
     </head>
     <body>
         <header>
-                <h1>Homework 7</h1>
-                <p>Coming Soon!</p>
-
+                <h1>CNT 133 Homework 7 - Object Model and Event Model.</h1>
         </header>
 
         <section>
+            <div class="main">
+                <h2>Part 1. Modify Page Layout</h2>
+                    <div class="part_desc">
+                        <p>Customizable web page: Allow users to change the background color, 
+                           font size, font family, font style, and font weight of the page through
+                           various form elements
+                        </p>
+                        <a href="hw7_pt1.html" class="hlink">Part 1</a>
+
+                    </div>
+                <h2>Part 2. Top NAV Bar</h2>
+                    <div class="part_desc">
+                        <p>Homework navigation bar: Users will be able to navigate through the 
+                           various homework assignments. When any homework is moused over, 
+                           dropdown menu contain parts of the homework is displayed.
+                        </p>
+                        <a href="hw7_pt2.html" class="hlink">Part 2</a>
+                    </div>
+                <h2>Part 3. Photo Style Slide Show</h2>
+                    <div class="part_desc">
+                        <p>Photo slide show: Displays a slide show of paragraphs using JQuery. 
+                        </p>
+                        <a href="hw7_pt3.html" class="hlink">Part 3</a>
+                    </div>
+            </div>
 
         </section>
 
