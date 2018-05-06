@@ -8,14 +8,12 @@ function createNavMenu(){
     document.write('<ul>');
     document.write('<li><a class="mainpg" href="../index.html">CLIN Page</a></li>');
     document.write('<li><a href="hw7.html">HW7 Page</a></li>');
-    document.write('<li><a href="hw_7pt1.html">' + 
-                   'Part 1 - Calc Student Grades</a></li>');
-    document.write(' <li><a href="hw_7pt2.html">' + 
-                   'Part 2 - Weekly Pay for Sales</a></li>');
-    document.write('<li><a href="hw_7pt3.html">' +
-                   'Part 3 - Temp Conversion</a></li>');
-    document.write('<li><a href="hw_7pt4.html">' + 
-                   'Part 4 - Simple Math Practice</a></li>');
+    document.write('<li><a href="hw7_pt1.html">' + 
+                   'Part 1 - Modify Page Layout</a></li>');
+    document.write(' <li><a href="hw7_pt2.html">' + 
+                   'Part 2 - Top NAV Bar</a></li>');
+    document.write('<li><a href="hw7_pt3.html">' +
+                   'Part 3 - Photo Style Slide Show</a></li>');
     document.write('</ul>');
     document.write('</nav>')
 }

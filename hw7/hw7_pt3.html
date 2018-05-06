@@ -5,16 +5,47 @@
         <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
         <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" /> -->
+        <!-- add jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+       <!-- Add fancyBox -->
+            <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
+            <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.7"></script> <!-- add fancyBox script -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script> -->
         <script src="hw7_scripts.js"></script>
         <meta name="description" content="CLIN's CNIT 133 Homework 7 Part 3.">
-        <title>HW7-Part 3 Some State Information </title>
+        <title>HW7-Part 3 Photo Style Slide Show </title>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".fancybox").fancybox({
+                    openEffect : 'none',
+                    closeEffect : 'none'
+                });
+
+            });
+        </script>
+    
     </head>
     <body>
         <section>
-            <h1>CNIT 133 HW7 Part 3 - Information on Select States</h1>
-            <script>createNavMenu();</script> 
+            <h1>CNIT 133 HW7 Part 3 - Photo Style Slide Show</h1>
+            <script>createNavMenu();</script>
+            
+            <div class="wrapper">
+                <h2>My Lunch at the Restaurant</h2>
+                <a class="fancybox" rel="gallery" href="pictures/champagne.jpg" data-fancybox-group="gallary" 
+                   title="Bread"><img src="pictures/champagne.jpg" width="70" height="70" alt="bread"></a>
+                <a class="fancybox" rel="gallery" href="pictures/bread.jpg" data-fancybox-group="gallary" 
+                   title="Bread"><img src="pictures/bread.jpg" width="70" height="70" alt="bread"></a>
+                <a class="fancybox" rel="gallery" href="pictures/mussel.jpg" data-fancybox-group="gallary" 
+                   title="Bread"><img src="pictures/mussel.jpg" width="70" height="70" alt="bread"></a>
+                <a class="fancybox" rel="gallery" href="pictures/salad.jpg" data-fancybox-group="gallary" 
+                   title="Bread"><img src="pictures/salad.jpg" width="70" height="70" alt="bread"></a>
+                <a class="fancybox" rel="gallery" href="pictures/burger.jpg" data-fancybox-group="gallary" 
+                   title="Bread"><img src="pictures/burger.jpg" width="70" height="70" alt="bread"></a>
+
+            </div>
         </section>
     </body>
 
