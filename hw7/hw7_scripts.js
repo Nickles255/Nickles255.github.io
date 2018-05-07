@@ -19,6 +19,10 @@ function createNavMenu(){
 }
 
 // Part 1.
+// STEP 1. takes click functions for specific ID'd elements
+//         on page
+// STEP 2. remove class related to ID'd element 
+// STEP 3. addes class selected back into class.
 $(document).ready(function(){
 
     //function related to colors.
@@ -80,7 +84,9 @@ $(document).ready(function(){
         })
     });
 
-// Part 2.    
+// Part 2.  
+// STEP 1. Add event handler to window when loaded then executes function in Step 2.   
+// STEP 2. checks the element and enables visibility when mousing over an item.
 function createcssmenu2(){
     var curMenu = document.getElementById("cssmenu1").getElementsByTagName("ul"); //Enter CSS UL menus, seperated by commas
     for(var t=0; t<curMenu.length; t++){
@@ -93,9 +99,16 @@ function createcssmenu2(){
     }
 };
 
-
 if (window.addEventListener){
     window.addEventListener("load", createcssmenu2, false)}
 else if (window.attachEvent){
     window.attachEvent("onload", creatcssmenu2)};
 
+// Part 3. taking advantage of fancybox functionality
+
+$(document).ready(function(){
+    $(".fancybox").fancybox({
+            openEffect : 'none',
+            closeEffect : 'none'
+    });
+});
