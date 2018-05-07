@@ -1,0 +1,36 @@
+{
+  "minify": true,
+  "options": [
+    "addTest",
+    "atRule",
+    "prefixedCSS",
+    "testAllProps",
+    "testProp",
+    "testStyles",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/performance",
+    "test/postmessage",
+    "test/css/all",
+    "test/css/calc",
+    "test/css/columns",
+    "test/css/displayrunin",
+    "test/css/escape",
+    "test/css/generatedcontent",
+    "test/css/hsla",
+    "test/css/lastchild",
+    "test/css/mask",
+    "test/css/multiplebgs",
+    "test/css/opacity",
+    "test/css/positionsticky",
+    "test/css/reflections",
+    "test/css/resize",
+    "test/css/subpixelfont",
+    "test/css/textalignlast",
+    "test/css/transforms3d",
+    "test/css/transitions",
+    "test/css/vminunit",
+    "test/css/wrapflow"
+  ]
+}

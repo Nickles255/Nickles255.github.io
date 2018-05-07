@@ -1,0 +1,39 @@
+{
+  "crawl": false,
+  "customTests": [],
+  "dest": "/PATH/TO/modernizr-output.js",
+  "tests": [
+    "performance",
+    "postmessage",
+    "cssall",
+    "csscalc",
+    "csscolumns",
+    "display-runin",
+    "cssescape",
+    "generatedcontent",
+    "hsla",
+    "lastchild",
+    "cssmask",
+    "multiplebgs",
+    "opacity",
+    "csspositionsticky",
+    "cssreflections",
+    "cssresize",
+    "subpixelfont",
+    "textalignlast",
+    "csstransforms3d",
+    "csstransitions",
+    "cssvminunit",
+    "wrapflow"
+  ],
+  "options": [
+    "addTest",
+    "atRule",
+    "prefixedCSS",
+    "testAllProps",
+    "testProp",
+    "testStyles",
+    "setClasses"
+  ],
+  "uglify": true
+}
