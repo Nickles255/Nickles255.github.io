@@ -1,129 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
-        <!-- <link rel="stylesheet" type="text/css" href="../hw_link_pages.css"> -->
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+         <link rel="stylesheet" type="text/css" href="pg_layout.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="hw7_scripts.js"></script>
         <meta name="description" content="CLIN's CNIT 133 Homework 7 Part 1.">
         <title>HW7-Part1 Form Validation</title>
-        <style>
-            label{
-                display: inline-block;
-            }
-
-            #pg_layout td {
-                text-align: left;
-                vertical-align: top;
-            }
-
-            .white {
-                background-color: white;
-            }
-
-            .red {
-                background-color: red;
-            }
-        </style>
-        <script>
-              var myVal = $("#chngTxt");
-          $(document).ready(function(){
-           // myVal.removeClass('red');  
-           // myVal.addClass('white');
-
-        });
-        
-           function processPage(){
-            // var wholePg = document.getElementById('pg_layout');
-                alert("IN PROCESS");
-                
-                $("#chngTxt").removeClass("white");
-                $("#chngTxt").addClass("red");
-
-                alert("DONE");
-
-            }
-        </script>
     </head>
 
-    <body>
-        <script>
+    <body class="green">
+        <h1>CNIT 133 HW7 Part 1 - Modify Page Layout</h1>
+        <script>createNavMenu();</script>
+        <p>There are a few controls below to control the page layout.</p>
+        <p>Please click on controls to change</p>
 
-        </script>
-        <section>
-            <h1>CNIT 133 HW7 Part 1 - Form Validation</h1>
-            <script>createNavMenu();</script> 
-            
-                <form>
-                    <table id="controls" align="top">
-                    <tr><td>
-                        <div id="chngTxt" class="white">
-                        <p>Please use controls to <br>
-                           change webpage settings.
-                        </p>
-                        </div>
-
-                    </td>
-                    <td>
-                        <div class="bkg_color_choices">
-                            <p>Background Color</p>
-                            <button id="white" onclick="processPage()">White</button>
-                            <button id="red">Red</button>
-                            <button id="Black">Black</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fnt_family_choices">
-                            <p>Font Family</p>
-                            <button id="white">White</button>
-                            <button id="red">Red</button>
-                            <button id="Black">Black</button>
-                        </div>
-                    </td></tr>
-                    <tr><td>    
-                        <div class="fnt_style_choices">
-                            <p>Font Style</p>
-                            <select name="Font_style">
-                                <option value="normal">Normal</option>
-                                <option value="italic">Italic</option>
-                                <option value="oblique">Oblique</option>
-                            </select>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fnt_weight">
-                        <p>Font Weight</p>
-                        <select name="Font_weight" multiple>
-                            <option value="normal">Normal</option>
-                            <option value="bold">Bold</option>
-                            <option value="bolder">Bolder</option>
-                        </select>
-                        </div>
-                    </td>
-                    <td>                  
-                        <div class="fnt_size_choices">
-                            <p>Font Size</p>
-                            <input type="radio" name="fntSize" 
-                                   id="f10_pt" value="10pt">
-                            <label for="f10_pt">10pt font</label>
-                            <input type="radio" name="fntSize" 
-                                   id="f14_pt" value="14pt">
-                            <label for="f14_pt">14pt font</label>
-                            <input type="radio" name="fntSize" 
-                                   id="f18_pt" value="18pt">
-                            <label for="f18_pt">18pt font</label>
-                        </div>
-                    </td></tr>
-
-                    </table>
-
-                </form>
-
-        </section>
-
+        <div class="wrapper">
+            <div class="bkg_color_choices">
+                <h3>Background Color:</h3>
+                <button id="white">White</button>
+                <button id="red">Red</button>
+                <button id="green">Green</button>
+            </div>
+            <div class="fnt_family_choices">
+                <h3>Font Family:</h3>
+                <button id="arial">Arial</button>
+                <button id="time">Time</button>
+                <button id="courier">Courier</button>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="fnt_style_choices">
+                <h3>Font Style:</h3>
+                <select id="fStyleList" name="Font_style">
+                    <option value="normal">Normal</option>
+                    <option value="italic">Italic</option>
+                    <option value="oblique">Oblique</option>
+                </select>
+            </div>
+                    
+            <div class="fnt_weight">
+                <h3>Font Weight:</h3>
+                <select id="fWeight" name="Font_weight" size="3">
+                    <option value="normalW">Normal</option>
+                    <option value="lighter">Lighter</option>
+                    <option value="bold">Bold</option>
+                </select>
+            </div>
+        </div>  
+        <div class="wrapper">          
+            <div class="fnt_size_choices">
+                <h3>Font Size</h3>
+                <label for="f10_pt">
+                    <input type="radio" name="fntSize" 
+                       id="f10_pt" value="10pt" 
+                       onclick="fntSize_change();">10pt font
+                </label>
+                <label for="f14_pt">
+                    <input type="radio" name="fntSize" 
+                       id="f14_pt" value="14pt"
+                       onclick="fntSize_change();">14pt font
+                </label>
+                <label for="f18_pt"><input type="radio" name="fntSize" 
+                       id="f18_pt" value="18pt"
+                       onclick="fntSize_change();">18pt font
+                </label>
+            </div>
+        </div>
     </body>
-
 </html>

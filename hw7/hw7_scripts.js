@@ -18,6 +18,69 @@ function createNavMenu(){
     document.write('</nav>')
 }
 
+// Part 1.
+$(document).ready(function(){
+
+    //function related to colors.
+        $("#white").click(function(){
+            $("body").removeClass("red").removeClass("green");
+            $("body").addClass("white");
+        })
+    
+        $("#red").click(function(){
+            $("body").removeClass("white").removeClass("green");
+            $("body").addClass("red");
+        })
+        
+        $("#green").click(function(){
+            $("body").removeClass("white").removeClass("red");
+            $("body").addClass("green");
+        })
+    //function related to font family
+        $("#arial").click(function(){
+            $("body").removeClass("time").removeClass("courier");
+            $("body").addClass("arial");
+        })
+    
+        $("#time").click(function(){
+            $("body").removeClass("arial").removeClass("courier");
+            $("body").addClass("time");
+        })
+    
+        $("#courier").click(function(){
+            $("body").removeClass("arial").removeClass("time");
+            $("body").addClass("courier");
+        })
+    //function related to font styles
+        $("#fStyleList").change(function(){
+            var selectedText = $(this).find("option:selected").val();
+            $("body").removeClass("normal").removeClass("italic").removeClass("oblique");
+            $("body").addClass(selectedText);
+        })
+    // function related to font weight
+        $("#fWeight").change(function(){
+            var selectedText = $(this).find("option:selected").val();
+            $("body").removeClass("normalW").removeClass("lighter").removeClass("bold");
+            $("body").addClass(selectedText);
+        })
+    // function related to font size
+        $("#f10_pt").click(function(){
+            $("body").removeClass("f14pt").removeClass("f18pt");
+            $("body").addClass("f10pt");
+        })
+    
+        $("#f14_pt").click(function(){
+            $("body").removeClass("f10pt").removeClass("f18pt");
+            $("body").addClass("f14pt");
+        })
+        
+        $("#f18_pt").click(function(){
+            $("body").removeClass("f10pt").removeClass("f14pt");
+            $("body").addClass("f18pt");
+        })
+    });
+
+// Part 2.    
 function createcssmenu2(){
     var curMenu = document.getElementById("cssmenu1").getElementsByTagName("ul"); //Enter CSS UL menus, seperated by commas
     for(var t=0; t<curMenu.length; t++){

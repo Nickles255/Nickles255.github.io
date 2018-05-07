@@ -1,0 +1,39 @@
+/* general areas of page modified */
+body {background-image: none;}
+a.mainpg {font-weight: bold;}
+/* Positioned various div on page */
+div.wrapper {
+    width: 600px;
+    position: relative;
+    clear: both;
+}
+div.fnt_family_choices, div.fnt_style_choices {
+    width: 40%;
+    position: relative;
+    float: right;
+}
+div.bkg_color_choices, div.fnt_weight {
+    width: 40%;
+    position: relative;
+    float: left;
+}
+/*  All special case classes for modifying page layout*/
+.white {background-color: white; }
+.red {background-color: red;}
+.green {background-color: green;}
+
+.arial{font-family: arial, sans-serif;}
+.time{font-family: Times, serif;}
+.courier{font-family: Courier, monospace;}
+
+.normal{font-style: normal;}
+.italic{font-style: italic;}
+.oblique{font-style: oblique;}    
+
+.normalW{font-weight: normal;}
+.bold{font-weight: bold;}
+.lighter{font-weight: lighter;}
+
+.f10pt{font-size: 10pt;}
+.f14pt{font-size: 14pt;}
+.f18pt{font-size: 18pt;}
