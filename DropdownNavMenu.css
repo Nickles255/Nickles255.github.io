@@ -1,0 +1,59 @@
+/* CSS menu related to nav dropdown in navMenu.js */
+
+.dropdownMenu {
+    margin-left: 0px;
+}
+
+.dropdownMenu ul{
+    margin: 10px;
+    padding: 0px;
+    /* list-style-type: none; */
+}
+
+.dropdownMenu ul li {
+    position: relative;
+    display: inline;
+    padding: 0px;
+    border: 1px solid black;
+    background-color: lightgray;
+}
+
+.dropdownMenu ul li a {
+    padding: 20px;
+}
+
+.dropdownMenu ul li a:hover {
+    padding: 0px 20px;
+    color: white;
+    background-color: gray;
+}
+.dropdownMenu ul li ul {
+    left: -10px; 
+    top: 23px;
+    position: absolute;
+    border: clear;
+    visibility: hidden;
+    display: block; 
+    background-color: white;
+    margin: 0px;
+}
+
+.dropdownMenu ul li ul li a:hover {
+    color: white;
+    background-color: gray;
+    width: 160px;
+    padding: 2px;
+    
+}
+
+.dropdownMenu ul li ul li {
+    border: none;
+}
+
+ .dropdownMenu ul li ul li a{ 
+    width: 160px; 
+    padding: 2px;
+    font-size: 8pt; 
+    border: 1px solid black;
+    float: left;      
+}

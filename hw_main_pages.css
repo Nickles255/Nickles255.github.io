@@ -1,7 +1,7 @@
 /*styling for the main homework pages*/
 
 /*Styling navigation bar*/
-div.top-nav {
+div .top-nav {
     color: blue;
     background-color: lightsteelblue;
     font-size: 2em;
@@ -13,7 +13,7 @@ div.top-nav {
 }
 
 /*Styling navigation bar*/
-ul{ 
+.menu ul{ 
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -25,7 +25,7 @@ ul{
 
 }
 
-li a {
+.menu li a {
     display: block;
     color: black;
     width: 190px;
@@ -34,7 +34,7 @@ li a {
     padding: 5px;
 }
 
-li a:hover{
+.menu li a:hover{
     color: white;
     background-color: gray;
 

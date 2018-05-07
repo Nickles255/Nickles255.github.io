@@ -1,27 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+        <!-- Modeled after -->
+        <!-- http://javascriptkit.com/script/script2/csstopmenu.shtml -->
     <head>
-        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../hw_main_pages.css">
         <link rel="stylesheet" type="text/css" href="../hw_link_pages.css">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../DropdownNavMenu.css">
         <script src="hw7_scripts.js"></script>
-        <meta name="description" content="CLIN's CNIT 133 Homework 7 Part 2.">
-        <title>HW7-Part 2 Pulldown menus</title>
-    </head>
+</head>
+<body>
+<div class="dropdownMenu">
+    <ul id="cssmenu1">
+        <li><a href="../index.html">Main Index</a></li>
+        <li> <a href="../hw2/hw2.html" >Homework 2</a>
+        <ul>
+            <li><a href="../hw2/hw2_pt1.html">Part 1 - document.write</a></li>
+            <li><a href="../hw2/hw2_pt2.html">Part 2 - 3 integer input</a></li>
+            <li><a href="../hw2/hw2_pt3.html">Part 3 - jQuery</a></li>
+            <li><a href="../hw2/hw2_pt4.html">Part 4 - Calc table</a></li>
+            <li><a href="../hw2/hw2_pt5.html">EC - Exchange Rates</a></li>
+        </ul>
+        </li>
+        <li> <a href="../hw3/hw3.html" >Homework 3</a> 
+        <ul>
+            <li><a href="../hw3/hw3_pt1.html">Part 1 - Calc grades</a></li>
+            <li><a href="../hw3/hw3_pt2.html">Part 2 - Weekly pay for sales</a></li>
+            <li><a href="../hw3/hw3_pt3.html">Part 3 - jQuery</a></li>
+            <li><a href="../hw3/hw3_pt4.html">Part 4 - Calc table</a></li>
+            <li><a href="../hw3/hw3_pt5.html">EC - Exchange Rates</a></li>
+        </ul>
+        </li>
+        <li> <a href="../hw4/hw4.html" >Homework 4</a> 
+        <ul>
+            <li><a href="../hw4/hw4_pt1.html">Part 1 - Prod and sum loops</a></li>
+            <li><a href="../hw4/hw4_pt2.html">Part 2 - Calc compound interest</a></li>
+            <li><a href="../hw4/hw4_pt3.html">Part 3 - Retail sales</a></li>
+            <li><a href="../hw4/hw4_pt4.html">Part 4 - Square shapes</a></li>
+        </ul>
+        </li>
+        <li> <a href="../hw5/hw5.html" >Homework 5</a> 
+        <ul>
+            <li><a href="../hw5/hw5_pt1.html">Part 1 - Form Validation</a></li>
+            <li><a href="../hw5/hw5_pt2.html">Part 2 - Pulldown Menus</a></li>
+            <li><a href="../hw5/hw5_pt3.html">Part 3 - State Info 2D array</a></li>
+        </ul>
+        </li>
+        <li> <a href="../hw6/hw6.html">Homework 6</a> 
+        <ul>
+            <li><a href="../hw6/hw6_pt1.html">Part 1 - Math Methods</a></li>
+            <li><a href="../hw6/hw6_pt2.html">Part 2 - String Methods</a></li>
+            <li><a href="../hw6/hw6_pt3.html">Part 3 - Date Conversion and Split function</a></li>
+        </ul>
+        </li>
+        <li> <a href="../hw7/hw7.html" >Homework 7</a>  
+        <ul>
+            <li><a href="hw7_pt1.html">Part 1 - Mod Page Layout</a></li>
+            <li><a href="hw7_pt2.html">Part 2 - Top NAV Bar</a></li>
+            <li><a href="hw7_pt3.html">Part 3 - Photo Style Slide Show</a></li>
+        </ul>
+        </li>
 
-    <body>
-        <section>
-            <h1>CNIT 133 HW7 Part 2 - Pulldown Menus</h1>
-            <script>createNavMenu();</script> 
-            <form>
-            
-            </form>            
-        </section>
 
-    </body>
-
-
-
+    </ul> 
+</div>
+    <script>createcssmenu2();</script>
+    <h1>CNIT 133 HW7 Part 2 - Top Navigation Bar </h1>
+    <script>createNavMenu();</script>
+</body>
 </html>
