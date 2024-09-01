@@ -45,6 +45,32 @@
             text-align: center;
             margin: 0 auto;
         }
+
+        ul {
+            list-style-type: circle;
+            margin-left: 25%;
+        }
+
+        ul li {
+            text-align: left;
+        }
+
+        pre {
+            margin-left: 20%;
+            text-align: left;
+        }
+
+        .light {
+            background-color: white;
+            color: black;
+        }
+
+        .dark {
+            background-color: black;
+            color: white;
+        }
+
+
     </style>
 
 </head>
@@ -66,6 +92,20 @@
 <footer>
     <button id="light">Light Theme</button>
     <button id="dark">Dark Theme</button>
+    <div id="htmx_ans">
+        <pre>
+            &lt;select name="city" id="city" hx-trigger="load, changed" hx-post="/api/search" hx-target="#result"&gt;
+                &lt;option&gt;San Francisco&lt;/option&gt;
+                &lt;option&gt;New York&lt;/option&gt;
+                &lt;option&gt;Las Vegas&lt;/option&gt;
+            &lt;/select&gt;
+        </pre>
+        <ul>
+            <li>"/api/search" within hx-post attribute represents the URL to send the post request</li>
+            <li>To allow for multiple triggers types in htmx we would need to add hx-trigger="load, changed"</li>
+            <li>To output results I would create a div with id result and add hx-target="#result"</li>
+        </ul>
+    </div>
 </footer>
 </body>
 

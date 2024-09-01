@@ -10,10 +10,12 @@
 
             $('button#light').on('click', function () {
                 f_chng_figureImg('assets/images/sun.jpeg', 'cartoon sun')
-                $("body").css({"background-color": "white", "color": "black"})
+                $("body").removeClass("dark")
+                $("body").addClass("light")
             });
             $('button#dark').on('click', function () {
                 f_chng_figureImg('assets/images/moon.jpeg', 'cartoon moon')
-                $("body").css({"background-color": "black", "color": "white"})
+                $("body").removeClass("light")
+                $("body").addClass("dark")
             });
         });
