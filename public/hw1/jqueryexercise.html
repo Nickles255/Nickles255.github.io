@@ -93,10 +93,10 @@
     <button id="dark">Dark Theme</button>
     <div id="htmx_ans">
         <pre>
-            &lt;select name="city" id="city" hx-trigger="load, changed" hx-post="/api/search" hx-target="#result"&gt;
-                &lt;option&gt;San Francisco&lt;/option&gt;
-                &lt;option&gt;New York&lt;/option&gt;
-                &lt;option&gt;Las Vegas&lt;/option&gt;
+            &lt;select name="city" id="city" hx-trigger="load, changed" hx-post="/api/search" hx-target="#result", hx-select="value" &gt;
+                &lt;option values="SF" &gt;San Francisco&lt;/option&gt;
+                &lt;option values="NY" &gt;New York&lt;/option&gt;
+                &lt;option values="LV" &gt;Las Vegas&lt;/option&gt;
             &lt;/select&gt;
         </pre>
         <ul>
